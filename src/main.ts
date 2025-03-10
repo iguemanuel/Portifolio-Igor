@@ -1,3 +1,6 @@
+import 'bootstrap/dist/css/bootstrap.min.css' // Importa o CSS do Bootstrap
+import './styles/index.css'
+
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
