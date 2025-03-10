@@ -4,7 +4,7 @@ import Home from './views/Home.vue'
 </script>
 
 <template>
-  <NavbarComponent />
+  <!-- <NavbarComponent /> -->
   <div class="fullpage-container">
     <section id="home" class="section">
       <Home />
