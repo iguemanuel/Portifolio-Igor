@@ -4,9 +4,9 @@ import Home from './views/Home.vue'
 </script>
 
 <template>
-  <!-- <NavbarComponent /> -->
   <div class="fullpage-container">
-    <section id="home" class="section">
+    <section id="home" class="home">
+      <NavbarComponent />
       <Home />
     </section>
     <section id="about" class="section">About</section>
@@ -25,6 +25,15 @@ import Home from './views/Home.vue'
 .section {
   height: 100vh;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  scroll-snap-align: start;
+}
+
+.home {
+  height: 100vh;
   align-items: center;
   justify-content: center;
   font-size: 2rem;

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
+import NavbarComponent from '@/components/NavbarComponent.vue'
 
 const routes = [{ path: '/', component: Home }]
 
