@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import NavbarComponent from './components/NavbarComponent.vue'
+import About from './views/About.vue'
 import Home from './views/Home.vue'
 </script>
 
 <template>
   <div class="fullpage-container">
     <section id="home" class="home">
-      <NavbarComponent />
       <Home />
     </section>
-    <section id="about" class="section">About</section>
+    <section id="about" class="section">
+      <About />
+    </section>
     <section id="projects" class="section">Projects</section>
     <section id="contact" class="section">Contact</section>
   </div>

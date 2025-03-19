@@ -11,6 +11,19 @@
 
   --font-family: 'Inter', sans-serif;
   --font-family-secondary: 'Poppins', sans-serif;
+
+  /* Tamanhos de fonte para Mobile */
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 22px;
+  --font-size-3xl: 26px;
+
+  /* Espaçamentos de linha */
+  --line-height-sm: 1.4;
+  --line-height-base: 1.6;
+  --line-height-lg: 1.8;
 }
 
 * {
@@ -21,6 +34,60 @@
 
 body {
   font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
   background-color: var(--bg-color);
   color: var(--text-color);
+}
+
+/* Tipografia padrão para Mobile */
+h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  line-height: var(--line-height-lg);
+  font-family: var(--font-family-secondary);
+}
+
+h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  font-family: var(--font-family-secondary);
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+  font-family: var(--font-family-secondary);
+}
+
+p {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+small {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 26px;
+    --font-size-3xl: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --font-size-sm: 16px;
+    --font-size-base: 18px;
+    --font-size-lg: 20px;
+    --font-size-xl: 24px;
+    --font-size-2xl: 30px;
+    --font-size-3xl: 40px;
+  }
 }

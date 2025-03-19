@@ -31,6 +31,7 @@ const scrollTo = (sectionId: string) => {
   justify-content: center;
 }
 
+/* Navbar */
 .navbar {
   display: flex;
   align-items: center;
@@ -41,10 +42,12 @@ const scrollTo = (sectionId: string) => {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Logo */
 .navbar-brand img {
   width: 4rem;
 }
 
+/* Links da Navbar */
 .navbar-links {
   display: flex;
   gap: 2rem;
@@ -53,9 +56,9 @@ const scrollTo = (sectionId: string) => {
   margin: 0;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.2rem;
 }
 
+/* Estilo dos Links */
 .navbar-links a {
   text-decoration: none;
   font-weight: bold;
@@ -68,15 +71,29 @@ const scrollTo = (sectionId: string) => {
   color: var(--tertiary-color);
 }
 
+/* Responsividade para dispositivos móveis */
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem;
-    justify-items: center;
+    justify-content: center; /* Centraliza o conteúdo da navbar */
   }
 
   .navbar-links {
     gap: 1rem;
-    display: none;
+    display: flex; /* Exibe os links */
+    flex-direction: column; /* Organiza os links na vertical */
+    align-items: center;
+    width: 100%;
+    background: var(--skeleton-color); /* Fundo da navbar no mobile */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 1rem 0;
+    display: none; /* Inicialmente, os links estão escondidos */
+  }
+
+  .navbar-links.active {
+    display: flex; /* Exibe os links quando o menu estiver ativo */
   }
 
   .navbar-brand img {
