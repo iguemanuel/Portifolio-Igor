@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
   --bg-color: #10130e;
@@ -12,7 +12,7 @@
   --font-family: 'Inter', sans-serif;
   --font-family-secondary: 'Poppins', sans-serif;
 
-  /* Tamanhos de fonte para Mobile */
+  /* Tamanhos de fonte baseados na tela */
   --font-size-sm: 12px;
   --font-size-base: 14px;
   --font-size-lg: 16px;
@@ -40,7 +40,7 @@ body {
   color: var(--text-color);
 }
 
-/* Tipografia padrão para Mobile */
+/* Tipografia padrão */
 h1 {
   font-size: var(--font-size-3xl);
   font-weight: 700;
@@ -70,24 +70,25 @@ small {
   line-height: var(--line-height-sm);
 }
 
-@media (min-width: 768px) {
+/* Responsividade */
+@media (max-width: 768px) {
   :root {
-    --font-size-sm: 14px;
-    --font-size-base: 16px;
-    --font-size-lg: 18px;
-    --font-size-xl: 20px;
-    --font-size-2xl: 26px;
-    --font-size-3xl: 32px;
+    --font-size-sm: 10px;
+    --font-size-base: 12px;
+    --font-size-lg: 14px;
+    --font-size-xl: 16px;
+    --font-size-2xl: 20px;
+    --font-size-3xl: 24px;
   }
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 480px) {
   :root {
-    --font-size-sm: 16px;
-    --font-size-base: 18px;
-    --font-size-lg: 20px;
-    --font-size-xl: 24px;
-    --font-size-2xl: 30px;
-    --font-size-3xl: 40px;
+    --font-size-sm: 9px;
+    --font-size-base: 11px;
+    --font-size-lg: 13px;
+    --font-size-xl: 14px;
+    --font-size-2xl: 18px;
+    --font-size-3xl: 22px;
   }
 }

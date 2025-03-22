@@ -1,55 +1,96 @@
-<script setup lang="ts"></script>
+<script setup>
+const skills = [
+  { name: 'HTML', icon: 'html5' },
+  { name: 'CSS', icon: 'css3' },
+  { name: 'JavaScript', icon: 'javascript' },
+  { name: 'TypeScript', icon: 'typescript' },
+  { name: 'Git', icon: 'git' },
+  { name: 'Node.js', icon: 'nodejs' },
+  { name: 'Vue.js', icon: 'vuejs' },
+  { name: 'Angular', icon: 'angular' },
+  { name: 'Php', icon: 'php' },
+  { name: 'Bootstrap', icon: 'bootstrap' },
+  { name: 'Tailwind', icon: 'tailwindcss' },
+  { name: 'Docker', icon: 'docker' },
+]
+</script>
 
 <template>
-  <section class="container-fluid min-h-screen flex flex-col justify-center items-center px-4">
-    <div class="container grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
-      <!-- About me Section - ocupa 100% da largura -->
-      <div class="col-span-1 md:col-span-2 text-center md:text-left">
-        <h2 class="text-3xl font-bold text-primary">About me</h2>
-        <p class="mt-2 text-lg text-gray-600">
-          Aqui você pode encontrar mais informações sobre mim.
+  <section id="about" class="py-5 px-3 ms-md-3 me-md-3">
+    <div class="mb-4 text-center">
+      <h2 class="mb-2 fw-bold text-white fs-3 fs-md-2">About Me</h2>
+      <div class="mx-auto bg-primary" style="width: 80px; height: 4px"></div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 p-5">
+        <h3 class="mb-3 fw-bold text-primary fs-4 fs-md-5">Quem sou eu</h3>
+        <p class="mb-3 text-secondary fs-6 fs-md-5">
+          Sou um desenvolvedor front-end apaixonado por criar interfaces modernas e intuitivas. Com
+          mais de 5 anos de experiência no desenvolvimento web, tenho trabalhado com as tecnologias
+          mais recentes para entregar produtos de alta qualidade.
+        </p>
+        <p class="mb-3 text-secondary fs-6 fs-md-5">
+          Minha jornada começou com HTML, CSS e JavaScript, e desde então venho me aprimorando
+          constantemente, adotando frameworks modernos como Vue.js, além de ferramentas que melhoram
+          a produtividade e a qualidade do código.
+        </p>
+        <p class="text-secondary fs-6 fs-md-5">
+          Além do desenvolvimento, tenho grande interesse em design de interfaces, experiência do
+          usuário e acessibilidade web, buscando sempre criar produtos que sejam não apenas bonitos,
+          mas também funcionais e inclusivos.
         </p>
       </div>
 
-      <!-- Quem sou eu Section -->
-      <div class="col-span-1 shadow-md rounded-lg p-6">
-        <h2 class="text-2xl font-semibold text-secondary">Quem sou eu?</h2>
-        <p class="mt-2 text-base text-gray-700">
-          Sou Desenvolvedor e Data Analyst apaixonado por tecnologia e dados desde os 16 anos.
-          Atualmente, curso Sistemas para Internet na UTFPR e busco constantemente aprimorar minhas
-          habilidades na área. Como desenvolvedor, tenho estudado e trabalhado em projetos desde o
-          fim do ensino médio, iniciando aplicações do zero e contribuindo para soluções inovadoras.
-          Além disso, possuo um ano de experiência como Data Analyst, desenvolvendo insights e
-          dashboards para transformar dados em decisões estratégicas. Estou sempre em busca de novos
-          desafios e oportunidades para evoluir profissionalmente. Vamos conversar?
-        </p>
-      </div>
-
-      <!-- Minhas Skills Section -->
-      <div class="col-span-1 shadow-md rounded-lg p-6">
-        <h2 class="text-2xl font-semibold text-secondary">Minhas Skills</h2>
-        <h3 class="mt-4 text-xl font-medium text-primary">Desenvolvimento Web</h3>
-        <ul class="mt-2 list-disc list-inside text-gray-700">
-          <li>Vue.js, React, Angular</li>
-          <li>TypeScript, JavaScript, TailwindCSS</li>
-          <li>Power BI, SQL, Python</li>
-          <li>Versionamento com Git/GitHub</li>
-        </ul>
+      <div class="col-md-6 p-5">
+        <h3 class="mb-4 fw-bold text-primary fs-4 fs-md-5">Minhas habilidades</h3>
+        <div class="row row-cols-3 row-cols-md-4 g-3">
+          <div
+            v-for="skill in skills"
+            :key="skill.name"
+            class="col d-flex flex-column align-items-center text-center"
+          >
+            <div
+              class="icon-container d-flex align-items-center justify-content-center rounded-circle p-2 p-md-3"
+              style="width: 70px; height: 70px; background-color: var(--skeleton-color)"
+            >
+              <img
+                :src="`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`"
+                :alt="skill.name"
+                class="img-fluid"
+                style="max-width: 40px; max-height: 40px"
+              />
+            </div>
+            <span class="skill-text text-secondary mt-2 fs-6">{{ skill.name }}</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-h2 {
-  font-family: var(--font-family-secondary);
+.icon-container {
+  width: 70px;
+  height: 70px;
+  transition: transform 0.3s ease-in-out;
 }
 
-.text-primary {
-  color: var(--tertiary-color);
+.icon-container:hover {
+  transform: scale(1.2); /* Aumenta o tamanho em 20% */
 }
 
-.text-secondary {
-  color: var(--secondary-color);
+.icon {
+  max-width: 40px;
+  max-height: 40px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.icon-container:hover .icon {
+  transform: scale(1.2); /* Aumenta o ícone junto com o contêiner */
+}
+.icon-container:hover + .skill-text {
+  color: var(--tertiary-color); /* Substitua pela cor desejada */
+  font-weight: bold;
 }
 </style>

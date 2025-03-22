@@ -37,7 +37,7 @@ const scrollTo = (sectionId: string) => {
   align-items: center;
   justify-content: space-between;
   background: var(--skeleton-color);
-  padding: 2rem 3rem;
+  padding: 1rem 2rem;
   width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

@@ -23,14 +23,14 @@ onMounted(() => {
 <template>
   <NavbarComponent />
   <section
-    class="container-fluid min-vh-100 d-flex flex-column justify-content-center align-items-center ms-3 me-3"
+    class="container-fluid min-vh-100 d-flex flex-column justify-content-center align-items-center ms-md-3 me-md-3"
   >
-    <div class="row w-100 text-center text-md-start mt-auto">
+    <div class="row w-100 text-center text-md-start">
       <!-- Texto -->
       <div class="col-md-8 d-flex flex-column justify-content-center p-5">
         <h2>Olá, sou Igor Emanuel</h2>
         <h1 ref="typewriterElement"></h1>
-        <p>
+        <p class="text-justify">
           Construo e transformo necessidades em aplicações reais, envolventes e funcionais.
           Desenvolvo sistemas através da minha paixão pela tecnologia, contribuindo com soluções
           inovadoras e eficazes para desafios complexos.
@@ -39,19 +39,19 @@ onMounted(() => {
 
       <!-- Imagem -->
       <div
-        class="perfil-container container-sm col-md-4 d-flex justify-content-end align-items-center sm:mt-5"
+        class="d-none d-md-flex perfil-container container-sm col-md-4 d-flex justify-content-end align-items-center sm:mt-5"
       >
         <img
           src="@/assets/perfil.png"
           alt="Igor Emanuel"
-          class="icon-perfil img-fluid rounded-circle"
-          style="max-width: 400px"
+          class="icon-perfil img-fluid rounded-circle width-2/3 me-4"
+          style="max-width: 300px"
         />
       </div>
     </div>
 
     <!-- Social -->
-    <div class="social d-flex justify-content-center gap-3 mt-auto p-4">
+    <div class="social d-flex justify-content-center gap-3 p-4">
       <a href="https://www.instagram.com/iguemanuel/" target="_blank">
         <font-awesome-icon :icon="['fab', 'instagram']" class="fs-2" />
       </a>
@@ -66,92 +66,41 @@ onMounted(() => {
 </template>
 
 <style scoped>
-a {
-  text-decoration: none;
-  color: var(--text-color);
-  padding: 0;
-}
-
-.social {
-  height: 15rem;
+.text-primary {
+  color: var(--tertiary-color);
 }
 
 h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 1rem 0;
   color: var(--tertiary-color);
-  font-family: var(--font-family-secondary);
-}
-
-h2 {
-  font-size: 2rem;
-  font-weight: 400;
-  margin: 1rem 0;
-  font-family: var(--font-family);
 }
 
 p {
-  font-size: 2rem;
-  font-weight: 300;
-  margin: 1rem 0;
-  font-family: var(--font-family);
+  color: rgb(206, 200, 200);
+  font-weight: lighter;
 }
 
-.social svg {
-  transition: color 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-.social svg:hover {
-  color: var(--tertiary-color);
-}
-
-/* Responsividade */
 @media screen and (max-width: 768px) {
   h1 {
+    font-size: 2rem;
+  }
+  h2 {
     font-size: 1.8rem;
   }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
   p {
     font-size: 1rem;
-  }
-
-  .perfil-container {
-    justify-content: center !important;
-  }
-
-  .icon-perfil {
-    max-width: 200px;
-    max-height: 200px;
-  }
-
-  .social {
-    height: auto;
-    margin-top: 1rem;
   }
 }
 
 @media screen and (max-width: 480px) {
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.15rem;
   }
-
   h2 {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
-
   p {
-    font-size: 0.9rem;
-  }
-
-  .icon-perfil {
-    max-width: 150px;
-    max-height: 150px;
+    font-size: 0.8rem;
+    text-align: justify;
   }
 }
 </style>
