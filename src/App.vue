@@ -2,6 +2,7 @@
 import NavbarComponent from './components/NavbarComponent.vue'
 import About from './views/About.vue'
 import Home from './views/Home.vue'
+import Projects from './views/Projects.vue'
 </script>
 
 <template>
@@ -12,7 +13,9 @@ import Home from './views/Home.vue'
     <section id="about" class="section">
       <About />
     </section>
-    <section id="projects" class="section">Projects</section>
+    <section id="projects" class="section">
+      <Projects />
+    </section>
     <section id="contact" class="section">Contact</section>
   </div>
 </template>
