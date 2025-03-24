@@ -52,12 +52,14 @@ h2 {
   font-size: var(--font-size-2xl);
   font-weight: 600;
   font-family: var(--font-family-secondary);
+  color: var(--tertiary-color);
 }
 
 h3 {
   font-size: var(--font-size-xl);
   font-weight: 500;
   font-family: var(--font-family-secondary);
+  color: var(--tertiary-color);
 }
 
 p {
@@ -68,6 +70,16 @@ p {
 small {
   font-size: var(--font-size-sm);
   line-height: var(--line-height-sm);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--tertiary-color);
+    transition: color 0.3s;
+  }
 }
 
 /* Responsividade */

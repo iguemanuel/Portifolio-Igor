@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar-container">
-    <div class="navbar">
+    <div class="container navbar">
       <div class="navbar-brand">
         <a href="#">
           <img src="@/assets/logo.svg" alt="Logo" />
@@ -29,6 +29,9 @@ const scrollTo = (sectionId: string) => {
 .navbar-container {
   display: flex;
   justify-content: center;
+  width: 100%;
+  background: var(--skeleton-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Navbar */
@@ -36,10 +39,8 @@ const scrollTo = (sectionId: string) => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--skeleton-color);
   padding: 1rem 2rem;
   width: 100%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Logo */
