@@ -34,8 +34,8 @@ const skills = [
           <p>
             Desde os 16 anos, sou fascinado por tecnologia e dados. Essa paixão me levou a cursar
             Sistemas para Internet na UTFPR e a me dedicar ao desenvolvimento de aplicações e
-            análise de dados. Atualmente, trabalho como Desenvolvedor e Data Analyst, criando
-            soluções do zero e transformando dados em insights estratégicos.
+            análise de dados. Atualmente, trabalho como Desenvolvedor e Data Analyst Freelancer,
+            criando soluções do zero e transformando dados em insights estratégicos.
           </p>
           <p>
             Tenho experiência no desenvolvimento de dashboards, automação de processos e na
@@ -47,6 +47,12 @@ const skills = [
             no FIFA. Também curto basquete e CS, e se for para falar de time, sou Corinthians! Se
             minha trajetória fizer sentido para sua empresa, ficarei feliz em bater um papo!
           </p>
+          <p>
+            Para conhecer mais sobre minha experiência e habilidades, você pode acessar meu
+            currículo abaixo
+          </p>
+
+          <button class="btn btn-primary mt-4">Baixar CV</button>
         </div>
 
         <div class="col-md-6 p-5">

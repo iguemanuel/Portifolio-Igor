@@ -69,6 +69,9 @@ onMounted(() => {
 </template>
 
 <style scoped>
+h2 {
+  color: var(--text-color);
+}
 .container-fluid {
   padding: 0;
 }

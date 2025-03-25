@@ -1,135 +1,227 @@
+<script>
+import { ref } from 'vue'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+export default {
+  setup() {
+    const currentProject = ref(0)
+
+    const projects = ref([
+      {
+        title: 'Barbearia Machado',
+        description:
+          'Transformei necessidades em soluções reais, inovadoras e funcionais, alinhadas às metas do cliente.',
+        image: '/src/assets/img/barbaearia-machado.png',
+        tags: ['Vue', 'Bootstrap', 'Vite'],
+        liveUrl: '#',
+        githubUrl: '#',
+      },
+      {
+        title: 'E-commerce de Roupas',
+        description:
+          'Desenvolvi um marketplace moderno e responsivo para uma marca de roupas, focado em UX e conversão.',
+        image: '/placeholder.svg?height=400&width=600',
+        tags: ['Vue', 'Node.js', 'MongoDB'],
+        liveUrl: '#',
+        githubUrl: '#',
+      },
+      {
+        title: 'App de Finanças',
+        description:
+          'Aplicativo para controle financeiro pessoal com dashboard interativo e relatórios detalhados.',
+        image: '/placeholder.svg?height=400&width=600',
+        tags: ['Vue', 'Firebase', 'Chart.js'],
+        liveUrl: '#',
+        githubUrl: '#',
+      },
+    ])
+
+    const setCurrentProject = (index) => {
+      currentProject.value = index
+    }
+
+    const nextProject = () => {
+      currentProject.value = (currentProject.value + 1) % projects.value.length
+    }
+
+    const prevProject = () => {
+      currentProject.value =
+        (currentProject.value - 1 + projects.value.length) % projects.value.length
+    }
+
+    return {
+      currentProject,
+      projects,
+      setCurrentProject,
+      nextProject,
+      prevProject,
+    }
+  },
+}
+</script>
 <template>
-  <section class="py-5 px-4 bg-dark text-white">
-    <div class="container text-center">
-      <h2 class="display-4 text-success mb-3">Projetos</h2>
-      <p class="text-muted mb-4">Conheça alguns dos projetos que desenvolvi.</p>
+  <section class="container py-5 text-white">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="text-center mb-4">
+          <h2 class="mb-2 fw-bold text-white fs-3 fs-md-2">Projetos</h2>
+          <div class="mx-auto linha-titulo" style="background-color: var(--tertiary-color)"></div>
+        </div>
+        <p class="text-secondary mx-auto" style="max-width: 600px">
+          Conheça alguns dos projetos que desenvolvi com foco em design moderno e experiência do
+          usuário.
+        </p>
+      </div>
 
       <div class="position-relative">
         <!-- Project Card -->
-        <div class="card bg-secondary rounded-lg shadow-lg overflow-hidden mx-auto max-w-4xl">
-          <div class="row g-0">
-            <!-- Project Image -->
-            <div class="col-md-6">
-              <img
-                :src="projects[currentProject].img"
-                :alt="projects[currentProject].title"
-                class="img-fluid rounded-start"
-              />
-            </div>
-
-            <!-- Project Info -->
-            <div class="col-md-6 p-4 d-flex flex-column justify-content-center">
-              <h3 class="h4 text-success mb-4">{{ projects[currentProject].title }}</h3>
-              <p class="text-muted">{{ projects[currentProject].description }}</p>
-
-              <div class="mt-4">
-                <a href="#" class="btn btn-success">
-                  Ver projeto
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+        <transition
+          enter-active-class="transition-all duration-500 ease-out"
+          leave-active-class="transition-all duration-500 ease-in"
+          enter-from-class="opacity-0 scale-95"
+          leave-to-class="opacity-0 scale-95"
+          mode="out-in"
+        >
+          <div
+            :key="currentProject"
+            class="rounded-3 overflow-hidden shadow-lg"
+            style="backdrop-filter: blur(10px); background-color: var(--skeleton-color)"
+          >
+            <div class="row g-0">
+              <div class="col-md-6 position-relative overflow-hidden">
+                <div class="ratio ratio-16x9 h-md-100 position-relative">
+                  <img
+                    :src="projects[currentProject].image"
+                    :alt="`Screenshot do projeto ${projects[currentProject].title}`"
+                    class="object-cover w-100 h-100 transition-transform hover-scale"
+                    style="transition-duration: 700ms"
+                  />
+                  <div
+                    class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-end justify-content-center p-3 bg-dark opacity-0 hover-opacity-100"
+                    style="transition: opacity 300ms; background-color: var(--skeleton-color)"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    <div class="d-flex gap-3">
+                      <a
+                        v-if="projects[currentProject].liveUrl"
+                        :href="projects[currentProject].liveUrl"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn rounded-lg d-flex align-items-center gap-2 duration-300 hover-bg-success"
+                        style="background-color: var(--tertiary-color)"
+                      >
+                        <span>Deploy <font-awesome-icon icon="box-open" /> </span>
+                      </a>
+                      <a
+                        v-if="projects[currentProject].githubUrl"
+                        :href="projects[currentProject].githubUrl"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn rounded-lg d-flex align-items-center gap-2"
+                        style="background-color: var(--primary-color)"
+                      >
+                        <span
+                          >Github
+                          <font-awesome-icon :icon="['fab', 'github']" class="fs-6" />
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 p-4 d-flex flex-column justify-content-between">
+                <div>
+                  <h3 class="">
+                    {{ projects[currentProject].title }}
+                  </h3>
+                  <p class="text-secondary mb-4">
+                    {{ projects[currentProject].description }}
+                  </p>
+                  <div class="d-flex flex-wrap gap-2 mb-4">
+                    <span
+                      v-for="(tag, index) in projects[currentProject].tags"
+                      :key="index"
+                      class="badge bg-opacity-50 px-3 py-2"
+                    >
+                      {{ tag }}
+                    </span>
+                  </div>
+                </div>
+
+                <div class="mt-auto">
+                  <div class="d-flex align-items-left gap-2">
+                    <button
+                      v-for="(_, index) in projects"
+                      :key="index"
+                      @click="setCurrentProject(index)"
+                      :class="[
+                        'rounded-pill transition-all duration-300',
+                        index === currentProject ? 'bg-success w-3 h-1' : 'bg-secondary w-1 h-1',
+                      ]"
+                      style="border: none"
+                      :aria-label="`Ver projeto ${index + 1}`"
+                      :aria-current="index === currentProject ? 'true' : 'false'"
                     />
-                  </svg>
-                </a>
+                  </div>
+
+                  <div class="d-flex gap-2 justify-content-between">
+                    <button
+                      @click="prevProject"
+                      class="btn btn-outline-success rounded-circle d-flex align-items-center justify-content-center"
+                      style="width: 40px; height: 40px; outline-color: var(--secondary-color)"
+                      aria-label="Projeto anterior"
+                    >
+                      &lt;
+                    </button>
+                    <button
+                      @click="nextProject"
+                      class="btn btn-outline-success rounded-circle d-flex align-items-center justify-content-center"
+                      style="width: 40px; height: 40px; outline-color: var(--secondary-color)"
+                      aria-label="Próximo projeto"
+                    >
+                      &gt;
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- Navigation Buttons -->
-        <button
-          @click="prevProject"
-          class="position-absolute top-50 start-0 translate-middle-y btn btn-dark btn-circle"
-          aria-label="Projeto Anterior"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-        </button>
-
-        <button
-          @click="nextProject"
-          class="position-absolute top-50 end-0 translate-middle-y btn btn-dark btn-circle"
-          aria-label="Próximo Projeto"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </button>
+        </transition>
       </div>
 
-      <!-- Indicators -->
-      <div class="d-flex justify-content-center mt-4">
-        <button
-          v-for="(project, index) in projects"
-          :key="index"
-          @click="currentProject = index"
-          class="btn btn-sm"
-          :class="index === currentProject ? 'btn-success' : 'btn-outline-secondary'"
-          aria-label="Selecionar Projeto"
-          :aria-pressed="index === currentProject ? 'true' : 'false'"
-        ></button>
+      <div class="text-center mt-5">
+        <a
+          href="#"
+          class="text-success text-decoration-none d-inline-flex align-items-center gap-2"
+        >
+          <span>Ver todos os projetos</span>
+          &gt;
+        </a>
       </div>
     </div>
   </section>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-
-const currentProject = ref(0)
-
-const projects = ref([
-  {
-    title: 'Barbearia Machado',
-    description:
-      'Transformei necessidades em soluções reais, inovadoras e funcionais, alinhadas às metas do cliente.',
-    img: 'src/assets/img/barbaearia-machado.png', // Ajuste para caminho correto
-  },
-  {
-    title: 'E-commerce de Roupas',
-    description:
-      'Desenvolvi um marketplace moderno e responsivo para uma marca de roupas, focado em UX e conversão.',
-    img: '/assets/img/ecommerce-roupas.png', // Ajuste para caminho correto
-  },
-])
-
-const nextProject = () => {
-  currentProject.value = (currentProject.value + 1) % projects.value.length
+<style scoped>
+.linha-titulo {
+  width: 80px;
+  height: 4px;
 }
-
-const prevProject = () => {
-  currentProject.value = (currentProject.value - 1 + projects.value.length) % projects.value.length
+.hover-scale:hover {
+  transform: scale(1.05);
 }
-</script>
+.hover-opacity-100:hover {
+  opacity: 0.5 !important;
+}
+.transition-all {
+  transition: all 0.3s ease;
+}
+.bg-opacity-25 {
+  background-color: rgba(108, 117, 125, 0.25);
+}
+.bg-opacity-50 {
+  background-color: rgba(108, 117, 125, 0.5);
+}
+.bg-opacity-80 {
+  background-color: rgba(33, 37, 41, 0.8);
+}
+</style>

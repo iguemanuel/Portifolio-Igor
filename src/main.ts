@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 // Importação do ícone necessário
 import { faInstagram, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faBoxOpen } from '@fortawesome/free-solid-svg-icons'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -15,7 +16,7 @@ import App from './App.vue'
 import router from './router'
 
 // Adicionar ícones à biblioteca
-library.add(faInstagram, faLinkedin, faGithub)
+library.add(faInstagram, faLinkedin, faGithub, faBoxOpen)
 
 const app = createApp(App)
 

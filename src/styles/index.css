@@ -82,6 +82,21 @@ a {
   }
 }
 
+.btn-primary {
+  background-color: var(--tertiary-color);
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: var(--secondary-color);
+  }
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   :root {
