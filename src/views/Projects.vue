@@ -164,6 +164,7 @@ export default {
         <a
           href="https://github.com/iguemanuel?tab=repositories"
           class="text-decoration-none d-inline-flex align-items-center gap-2"
+          target="_blank"
         >
           <span> Ver todos os projetos </span>
           &gt;

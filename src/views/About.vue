@@ -52,7 +52,9 @@ const skills = [
             currículo abaixo
           </p>
 
-          <button class="btn btn-primary mt-4">Baixar CV</button>
+          <a href="/src/public/cv_igor.pdf" download>
+            <button class="btn btn-primary mt-4">Baixar CV</button>
+          </a>
         </div>
 
         <div class="col-md-6 p-5">
@@ -96,6 +98,7 @@ const skills = [
 
 .icon-container:hover {
   transform: scale(1.2);
+  box-shadow: var(--tertiary-color) 0px 0px 10px;
 }
 
 .icon {

@@ -105,11 +105,12 @@ p {
 /* Ajuste para as redes sociais */
 .social a {
   color: #fff;
-  transition: color 0.3s ease;
+  transition: color 2s ease;
 }
 
 .social a:hover {
-  color: #7cfc00;
+  color: var(--tertiary-color);
+  box-shadow: var(--tertiary-color) 10px;
 }
 
 /* Centralização do conteúdo */

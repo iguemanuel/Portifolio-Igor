@@ -1,13 +1,14 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import emailjs from 'emailjs-com'
+import { useToast } from 'vue-toastification'
 
-// Defina as variáveis de ambiente
+const toast = useToast()
+
 const serviceId = import.meta.env.VITE_SERVICE_ID
 const templateId = import.meta.env.VITE_TEMPLATE_ID
-const userId = import.meta.env.VITE_USER_ID
+const apiKey = import.meta.env.VITE_API_KEY
 
-// Estado de submissão do formulário
 const isSubmitting = ref(false)
 const form = ref({
   name: '',
@@ -20,32 +21,37 @@ const handleSubmit = async () => {
   isSubmitting.value = true
 
   try {
-    // Enviar e-mail com o EmailJS
-    await emailjs.send(
-      serviceId, // Usando a variável de ambiente para o ID do serviço
-      templateId, // Usando a variável de ambiente para o ID do template
+    const response = await emailjs.send(
+      serviceId,
+      templateId,
       {
         name: form.value.name,
         email: form.value.email,
         subject: form.value.subject,
         message: form.value.message,
       },
-      userId, // Usando a variável de ambiente para o ID do usuário
+      apiKey, // Substitui o antigo userId
     )
 
-    // Exibir Toast de sucesso do Bootstrap
-    const toastEl = document.getElementById('successToast')
-    const toast = new bootstrap.Toast(toastEl)
-    toast.show()
+    console.log('Email enviado com sucesso:', response)
 
-    // Resetando os campos do formulário
+    // Exibe o alerta de sucesso com Toastification
+    toast.success('Mensagem enviada! Obrigado pelo contato. Responderei em breve.')
+
     form.value = { name: '', email: '', subject: '', message: '' }
   } catch (error) {
-    alert('Erro ao enviar: ' + error.message)
+    console.error('Erro ao enviar:', error)
+    toast.error('Erro ao enviar: ' + (error?.message || 'Erro desconhecido'))
   } finally {
     isSubmitting.value = false
   }
 }
+
+onMounted(() => {
+  console.log('Service ID:', serviceId)
+  console.log('Template ID:', templateId)
+  console.log('API Key:', apiKey)
+})
 </script>
 
 <template>
@@ -114,24 +120,6 @@ const handleSubmit = async () => {
           {{ isSubmitting ? 'Enviando...' : 'Enviar Mensagem' }}
         </button>
       </form>
-    </div>
-
-    <!-- Toast de sucesso -->
-    <div class="toast-container position-fixed top-0 end-0 p-3">
-      <div
-        id="successToast"
-        class="toast align-items-center text-bg-success border-0"
-        role="alert"
-        aria-live="assertive"
-        aria-atomic="true"
-      >
-        <div class="d-flex">
-          <div class="toast-body">
-            Mensagem enviada! Obrigado pelo contato. Responderei em breve.
-          </div>
-          <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
-        </div>
-      </div>
     </div>
   </div>
 </template>

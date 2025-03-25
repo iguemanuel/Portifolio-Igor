@@ -9,8 +9,8 @@ import ContactFormComponent from '@/components/ContactFormComponent.vue'
         <h2 class="mb-2 fw-bold text-white fs-3 fs-md-2">About Me</h2>
         <div class="mx-auto linha-titulo" style="background-color: var(--tertiary-color)"></div>
         <p class="text-secondary mx-auto" style="max-width: 600px">
-          Entre em contato comigo para discutir oportunidades de colaboração, projetos ou apenas
-          para dizer olá!
+          Estou sempre aberto a novas oportunidades e colaborações. Preencha o formulário abaixo ou
+          me contate através das redes sociais.
         </p>
       </div>
     </div>
