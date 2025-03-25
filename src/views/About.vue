@@ -23,8 +23,14 @@ const skills = [
       <!-- Linha separada para o título -->
       <div class="row">
         <div class="text-center mb-4">
-          <h2 class="mb-2 fw-bold text-white fs-3 fs-md-2">About Me</h2>
-          <div class="mx-auto linha-titulo" style="background-color: var(--tertiary-color)"></div>
+          <h2 class="mb-2 fw-bold text-white fs-3 fs-md-2">Sobre</h2>
+          <div
+            class="mb-2 mx-auto linha-titulo"
+            style="background-color: var(--tertiary-color)"
+          ></div>
+          <p class="text-secondary mx-auto">
+            Veja um pouco mais sobre mim, minhas habilidades e experiências.
+          </p>
         </div>
       </div>
       <!-- Linha com as duas colunas -->
@@ -93,7 +99,9 @@ const skills = [
   width: 70px;
   height: 70px;
   background-color: var(--skeleton-color);
-  transition: transform 0.3s ease-in-out;
+  transition:
+    transform,
+    0.3s ease-in-out;
 }
 
 .icon-container:hover {
