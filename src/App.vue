@@ -5,6 +5,7 @@ import NavbarComponent from './components/NavbarComponent.vue'
 import About from './views/About.vue'
 import Home from './views/Home.vue'
 import Projects from './views/Projects.vue'
+import Contact from './views/Contact.vue'
 
 const locoScroll = ref<LocomotiveScroll | null>(null)
 
@@ -35,7 +36,9 @@ onUnmounted(() => {
     <section id="projects" class="section">
       <Projects />
     </section>
-    <section id="contact" class="section">Contact</section>
+    <section id="contact" class="section">
+      <Contact />
+    </section>
   </div>
 </template>
 

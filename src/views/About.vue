@@ -4,7 +4,7 @@ const skills = [
   { name: 'CSS', icon: 'css3' },
   { name: 'JavaScript', icon: 'javascript' },
   { name: 'TypeScript', icon: 'typescript' },
-  { name: 'Php', icon: 'php' },
+  { name: 'PHP', icon: 'php' },
   { name: 'Git', icon: 'git' },
   { name: 'Node.js', icon: 'nodejs' },
   { name: 'Vue.js', icon: 'vuejs' },

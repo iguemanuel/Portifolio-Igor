@@ -1,52 +1,28 @@
 <script>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { projects as ProjectData } from '@/db/Projects'
 
 export default {
+  components: {
+    FontAwesomeIcon,
+  },
   setup() {
     const currentProject = ref(0)
-
-    const projects = ref([
-      {
-        title: 'Barbearia Machado',
-        description:
-          'Transformei necessidades em soluções reais, inovadoras e funcionais, alinhadas às metas do cliente.',
-        image: '/src/assets/img/barbaearia-machado.png',
-        tags: ['Vue', 'Bootstrap', 'Vite'],
-        liveUrl: '#',
-        githubUrl: '#',
-      },
-      {
-        title: 'E-commerce de Roupas',
-        description:
-          'Desenvolvi um marketplace moderno e responsivo para uma marca de roupas, focado em UX e conversão.',
-        image: '/placeholder.svg?height=400&width=600',
-        tags: ['Vue', 'Node.js', 'MongoDB'],
-        liveUrl: '#',
-        githubUrl: '#',
-      },
-      {
-        title: 'App de Finanças',
-        description:
-          'Aplicativo para controle financeiro pessoal com dashboard interativo e relatórios detalhados.',
-        image: '/placeholder.svg?height=400&width=600',
-        tags: ['Vue', 'Firebase', 'Chart.js'],
-        liveUrl: '#',
-        githubUrl: '#',
-      },
-    ])
+    const projects = ProjectData
 
     const setCurrentProject = (index) => {
-      currentProject.value = index
+      if (index >= 0 && index < projects.length) {
+        currentProject.value = index
+      }
     }
 
     const nextProject = () => {
-      currentProject.value = (currentProject.value + 1) % projects.value.length
+      currentProject.value = (currentProject.value + 1) % projects.length
     }
 
     const prevProject = () => {
-      currentProject.value =
-        (currentProject.value - 1 + projects.value.length) % projects.value.length
+      currentProject.value = (currentProject.value - 1 + projects.length) % projects.length
     }
 
     return {
@@ -59,14 +35,16 @@ export default {
   },
 }
 </script>
+
 <template>
   <section class="container py-5 text-white">
     <div class="container">
       <div class="text-center mb-5">
-        <div class="text-center mb-4">
-          <h2 class="mb-2 fw-bold text-white fs-3 fs-md-2">Projetos</h2>
-          <div class="mx-auto linha-titulo" style="background-color: var(--tertiary-color)"></div>
-        </div>
+        <h2 class="mb-2 fw-bold text-white fs-3 fs-md-2">Projetos</h2>
+        <div
+          class="mx-auto linha-titulo mb-3"
+          style="background-color: var(--tertiary-color)"
+        ></div>
         <p class="text-secondary mx-auto" style="max-width: 600px">
           Conheça alguns dos projetos que desenvolvi com foco em design moderno e experiência do
           usuário.
@@ -91,8 +69,8 @@ export default {
               <div class="col-md-6 position-relative overflow-hidden">
                 <div class="ratio ratio-16x9 h-md-100 position-relative">
                   <img
-                    :src="projects[currentProject].image"
-                    :alt="`Screenshot do projeto ${projects[currentProject].title}`"
+                    :src="projects[currentProject]?.image || ''"
+                    :alt="`Screenshot do projeto ${projects[currentProject]?.title || ''}`"
                     class="object-cover w-100 h-100 transition-transform hover-scale"
                     style="transition-duration: 700ms"
                   />
@@ -102,7 +80,7 @@ export default {
                   >
                     <div class="d-flex gap-3">
                       <a
-                        v-if="projects[currentProject].liveUrl"
+                        v-if="projects[currentProject]?.liveUrl"
                         :href="projects[currentProject].liveUrl"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -112,7 +90,7 @@ export default {
                         <span>Deploy <font-awesome-icon icon="box-open" /> </span>
                       </a>
                       <a
-                        v-if="projects[currentProject].githubUrl"
+                        v-if="projects[currentProject]?.githubUrl"
                         :href="projects[currentProject].githubUrl"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -130,15 +108,11 @@ export default {
               </div>
               <div class="col-md-6 p-4 d-flex flex-column justify-content-between">
                 <div>
-                  <h3 class="">
-                    {{ projects[currentProject].title }}
-                  </h3>
-                  <p class="text-secondary mb-4">
-                    {{ projects[currentProject].description }}
-                  </p>
+                  <h3>{{ projects[currentProject]?.title }}</h3>
+                  <p class="text-secondary mb-4">{{ projects[currentProject]?.description }}</p>
                   <div class="d-flex flex-wrap gap-2 mb-4">
                     <span
-                      v-for="(tag, index) in projects[currentProject].tags"
+                      v-for="(tag, index) in projects[currentProject]?.tags || []"
                       :key="index"
                       class="badge bg-opacity-50 px-3 py-2"
                     >
@@ -167,7 +141,6 @@ export default {
                     <button
                       @click="prevProject"
                       class="btn btn-outline-success rounded-circle d-flex align-items-center justify-content-center"
-                      style="width: 40px; height: 40px; outline-color: var(--secondary-color)"
                       aria-label="Projeto anterior"
                     >
                       &lt;
@@ -175,7 +148,6 @@ export default {
                     <button
                       @click="nextProject"
                       class="btn btn-outline-success rounded-circle d-flex align-items-center justify-content-center"
-                      style="width: 40px; height: 40px; outline-color: var(--secondary-color)"
                       aria-label="Próximo projeto"
                     >
                       &gt;
@@ -190,10 +162,10 @@ export default {
 
       <div class="text-center mt-5">
         <a
-          href="#"
-          class="text-success text-decoration-none d-inline-flex align-items-center gap-2"
+          href="https://github.com/iguemanuel?tab=repositories"
+          class="text-decoration-none d-inline-flex align-items-center gap-2"
         >
-          <span>Ver todos os projetos</span>
+          <span> Ver todos os projetos </span>
           &gt;
         </a>
       </div>
