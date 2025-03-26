@@ -58,7 +58,7 @@ const skills = [
             currículo abaixo
           </p>
 
-          <a href="/src/public/cv_igor.pdf" download>
+          <a href="/cv_igor.pdf" download>
             <button class="btn btn-primary mt-4">Baixar CV</button>
           </a>
         </div>
