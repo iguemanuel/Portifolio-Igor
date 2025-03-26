@@ -1,33 +1,18 @@
-# portifolio-igor
+# 🚀 Meu Portfólio
 
-This template should help get you started developing with Vue 3 in Vite.
+Bem-vindo ao meu portfólio! Aqui você encontra uma coleção dos meus projetos e experiências como Desenvolvedor e Data Analyst. Construí este site para apresentar meu trabalho de forma organizada e acessível.
+🛠 Tecnologias
 
-## Recommended IDE Setup
+# Este portfólio foi desenvolvido utilizando:
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+    Vue.js – Framework progressivo para construção de interfaces
 
-## Type Support for `.vue` Imports in TS
+    TailwindCSS – Estilização moderna e responsiva
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+    TypeScript – Para interatividade e dinamismo
 
-## Customize configuration
+# 🌐 Acesse meu portfólio
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+👉 Meu Portfólio https://portifolio-igor.vercel.app/
 
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+Se quiser bater um papo sobre tecnologia, estou à disposição!
