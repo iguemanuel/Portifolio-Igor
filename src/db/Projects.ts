@@ -22,7 +22,7 @@ export const projects = [
     description:
       'O Control Finance é uma aplicação web desenvolvido para gerenciar finanças de forma simples e eficiente. Ele permite o apontamento de receitas e despesas, oferecendo uma visão clara do saldo financeiro. Além disso, o aplicativo permite a categorização das transações, gráficos de análise financeira, ajudando os usuários a planejarem suas finanças. ',
     image: '/src/assets/img/control-finance.png',
-    tags: ['Angular', 'CSS', 'Tailwind', 'SQlite', 'Pocktbase'],
+    tags: ['Angular', 'TypeScript', 'CSS', 'Tailwind', 'SQlite', 'Pocktbase'],
     liveUrl: 'https://control-finance-e5drgpihu-igor-emanuels-projects.vercel.app',
     githubUrl: 'https://github.com/iguemanuel/Control-Finance',
   },
@@ -31,7 +31,7 @@ export const projects = [
     description:
       'Stream View é prototipo web que permite que os usuários visualizem e pesquisem informações sobre filmes e séries. Com uma interface intuitiva e responsiva, o site exibe detalhes sobre filmes e séries, como sinopse, elenco, diretor e avaliações. Além disso, os usuários podem pesquisar por títulos específicos e visualizar trailers de filmes.',
     image: '/src/assets/img/stream-box.png',
-    tags: ['Vue', 'CSS', 'Tailwind'],
+    tags: ['Vue', 'TypeScript', 'CSS', 'Tailwind'],
     liveUrl: 'https://stream-box-vwff-c3vsf4lue-igor-emanuels-projects.vercel.app/',
     githubUrl: 'https://github.com/iguemanuel/Stream-Box',
   },

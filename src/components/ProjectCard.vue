@@ -38,30 +38,7 @@ const project = computed(() => props.projects[props.currentProject] || {})
             <div
               class="position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-end justify-content-center p-3 bg-dark opacity-0 hover-opacity-100"
               style="transition: opacity 300ms; background-color: var(--skeleton-color)"
-            >
-              <div class="d-flex gap-3">
-                <a
-                  v-if="project.liveUrl"
-                  :href="project.liveUrl"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn rounded-lg d-flex align-items-center gap-2 duration-300 hover-bg-success"
-                  style="background-color: var(--tertiary-color)"
-                >
-                  <span>Deploy <font-awesome-icon icon="box-open" /></span>
-                </a>
-                <a
-                  v-if="project.githubUrl"
-                  :href="project.githubUrl"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn rounded-lg d-flex align-items-center gap-2"
-                  style="background-color: var(--primary-color)"
-                >
-                  <span>Github <font-awesome-icon :icon="['fab', 'github']" class="fs-6" /></span>
-                </a>
-              </div>
-            </div>
+            ></div>
           </div>
         </div>
         <div class="col-md-6 p-4 d-flex flex-column justify-content-between">
@@ -92,6 +69,28 @@ const project = computed(() => props.projects[props.currentProject] || {})
                 :aria-label="`Ver projeto ${index + 1}`"
                 :aria-current="index === currentProject ? 'true' : 'false'"
               />
+            </div>
+            <div class="mb-3 d-flex gap-3">
+              <a
+                v-if="project.liveUrl"
+                :href="project.liveUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn rounded-lg d-flex align-items-center gap-2 duration-300 hover-bg-success"
+                style="background-color: var(--tertiary-color)"
+              >
+                <span>Deploy <font-awesome-icon icon="box-open" /></span>
+              </a>
+              <a
+                v-if="project.githubUrl"
+                :href="project.githubUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn rounded-lg d-flex align-items-center gap-2"
+                style="background-color: var(--primary-color)"
+              >
+                <span>Github <font-awesome-icon :icon="['fab', 'github']" class="fs-6" /></span>
+              </a>
             </div>
             <div class="d-flex gap-2 justify-content-between">
               <button
