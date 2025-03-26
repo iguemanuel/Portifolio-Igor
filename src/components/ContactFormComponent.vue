@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import emailjs from 'emailjs-com'
 import { useToast } from 'vue-toastification'
 
@@ -49,12 +49,6 @@ const handleSubmit = async () => {
     isSubmitting.value = false
   }
 }
-
-onMounted(() => {
-  console.log('Service ID:', serviceId)
-  console.log('Template ID:', templateId)
-  console.log('API Key:', apiKey)
-})
 </script>
 
 <template>
