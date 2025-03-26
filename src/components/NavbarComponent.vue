@@ -1,3 +1,11 @@
+<script setup lang="ts">
+const scrollTo = (sectionId: string) => {
+  const section = document.getElementById(sectionId)
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+</script>
 <template>
   <nav class="navbar-container">
     <div class="container navbar">
@@ -15,15 +23,6 @@
     </div>
   </nav>
 </template>
-
-<script setup lang="ts">
-const scrollTo = (sectionId: string) => {
-  const section = document.getElementById(sectionId)
-  if (section) {
-    section.scrollIntoView({ behavior: 'smooth' })
-  }
-}
-</script>
 
 <style scoped>
 .navbar-container {

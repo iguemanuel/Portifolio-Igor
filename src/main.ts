@@ -9,16 +9,17 @@ import 'vue-toastification/dist/index.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faInstagram, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
-import { faBoxOpen } from '@fortawesome/free-solid-svg-icons'
+import { faBoxOpen, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
+import { faEarthAmerica } from '@fortawesome/free-solid-svg-icons/faEarthAmerica'
 
 // Adicionar ícones à biblioteca
-library.add(faInstagram, faLinkedin, faGithub, faBoxOpen)
+library.add(faInstagram, faLinkedin, faGithub, faBoxOpen, faEnvelope, faPhone, faEarthAmerica)
 
 const app = createApp(App)
 

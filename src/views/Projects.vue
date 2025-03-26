@@ -1,45 +1,31 @@
-<script>
+<script setup lang="ts">
 import { ref } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { projects as ProjectData } from '@/db/Projects'
 import ProjectCard from '@/components/ProjectCard.vue'
 
-export default {
-  components: {
-    FontAwesomeIcon,
-    ProjectCard,
-  },
-  setup() {
-    const currentProject = ref(0)
-    const projects = ProjectData
+// Estado reativo
+const currentProject = ref(0)
+const projects = ProjectData
 
-    const setCurrentProject = (index) => {
-      if (index >= 0 && index < projects.length) {
-        currentProject.value = index
-      }
-    }
+// Métodos para navegação
+const setCurrentProject = (index: number) => {
+  if (index >= 0 && index < projects.length) {
+    currentProject.value = index
+  }
+}
 
-    const nextProject = () => {
-      currentProject.value = (currentProject.value + 1) % projects.length
-    }
+const nextProject = () => {
+  currentProject.value = (currentProject.value + 1) % projects.length
+}
 
-    const prevProject = () => {
-      currentProject.value = (currentProject.value - 1 + projects.length) % projects.length
-    }
-
-    return {
-      currentProject,
-      projects,
-      setCurrentProject,
-      nextProject,
-      prevProject,
-    }
-  },
+const prevProject = () => {
+  currentProject.value = (currentProject.value - 1 + projects.length) % projects.length
 }
 </script>
 
 <template>
-  <section class="container py-5 text-white">
+  <section class="container py-3 text-white">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="mb-2 fw-bold text-white fs-3 fs-md-2">Projetos</h2>

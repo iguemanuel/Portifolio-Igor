@@ -1,16 +1,38 @@
-<script setup>
+<script setup lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed } from 'vue'
+import { computed, type PropType } from 'vue'
 
+// Definição da estrutura de um projeto
+interface Project {
+  title: string
+  description: string
+  image: string
+  tags?: string[]
+  liveUrl?: string
+  githubUrl?: string
+}
+
+// Definição das props com tipagem correta
 const props = defineProps({
-  projects: Array,
-  currentProject: Number,
-  setCurrentProject: Function,
-  prevProject: Function,
-  nextProject: Function,
+  projects: { type: Array as PropType<Project[]>, required: true },
+  currentProject: { type: Number, required: true },
+  setCurrentProject: { type: Function as PropType<(index: number) => void>, required: true },
+  prevProject: { type: Function as PropType<() => void>, required: true },
+  nextProject: { type: Function as PropType<() => void>, required: true },
 })
 
-const project = computed(() => props.projects[props.currentProject] || {})
+// Garante que `project` sempre tenha um valor válido
+const project = computed<Project>(
+  () =>
+    props.projects[props.currentProject] || {
+      title: 'Projeto Desconhecido',
+      description: 'Descrição não disponível.',
+      image: '',
+      tags: [],
+      liveUrl: '',
+      githubUrl: '',
+    },
+)
 </script>
 
 <template>
@@ -30,8 +52,8 @@ const project = computed(() => props.projects[props.currentProject] || {})
         <div class="col-md-6 position-relative overflow-hidden">
           <div class="ratio ratio-16x9 h-md-100 position-relative">
             <img
-              :src="project.image || ''"
-              :alt="`Screenshot do projeto ${project.title || ''}`"
+              :src="project.image"
+              :alt="`Screenshot do projeto ${project.title}`"
               class="object-cover w-100 h-100 transition-transform hover-scale"
               style="transition-duration: 700ms"
             />
@@ -47,7 +69,7 @@ const project = computed(() => props.projects[props.currentProject] || {})
             <p class="mb-4">{{ project.description }}</p>
             <div class="d-flex flex-wrap gap-2 mb-4">
               <span
-                v-for="(tag, index) in project.tags || []"
+                v-for="(tag, index) in project.tags"
                 :key="index"
                 class="badge bg-secondary px-3 py-2"
               >
@@ -58,7 +80,7 @@ const project = computed(() => props.projects[props.currentProject] || {})
           <div class="mt-auto">
             <div class="d-flex align-items-left gap-2">
               <button
-                v-for="(_, index) in projects"
+                v-for="(_, index) in props.projects.length"
                 :key="index"
                 @click="setCurrentProject(index)"
                 :class="[

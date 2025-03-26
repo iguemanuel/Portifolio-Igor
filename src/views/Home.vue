@@ -29,7 +29,7 @@ onMounted(() => {
       <!-- Conteúdo principal -->
       <div class="row w-100 text-center text-md-start flex-grow-1 d-flex align-items-center">
         <!-- Texto -->
-        <div class="col-md-8 d-flex flex-column justify-content-center p-5">
+        <div class="col-md-8 d-flex flex-column justify-content-center p-3">
           <h2>Olá, sou Igor Emanuel</h2>
           <h1 ref="typewriterElement"></h1>
           <p class="text-justify">

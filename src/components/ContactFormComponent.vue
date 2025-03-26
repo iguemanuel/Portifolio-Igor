@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import emailjs from 'emailjs-com'
 import { useToast } from 'vue-toastification'
@@ -39,9 +39,12 @@ const handleSubmit = async () => {
     toast.success('Mensagem enviada! Obrigado pelo contato. Responderei em breve.')
 
     form.value = { name: '', email: '', subject: '', message: '' }
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Erro ao enviar:', error)
-    toast.error('Erro ao enviar: ' + (error?.message || 'Erro desconhecido'))
+
+    // Verifica se o erro tem uma mensagem
+    const errorMessage = error instanceof Error ? error.message : 'Erro desconhecido'
+    toast.error(`Erro ao enviar: ${errorMessage}`)
   } finally {
     isSubmitting.value = false
   }
@@ -57,10 +60,10 @@ onMounted(() => {
 <template>
   <div class="container mt-5">
     <div
-      class="card shadow-lg p-4 mx-auto text-white"
+      class="card shadow-lg p-4 mx-auto text-white rounded-3"
       style="max-width: 500px; background-color: var(--skeleton-color)"
     >
-      <h2 class="text-center mb-4">Entre em Contato</h2>
+      <h2 class="text-center mb-4">Envie uma mensagem</h2>
 
       <form @submit.prevent="handleSubmit">
         <div class="mb-3">

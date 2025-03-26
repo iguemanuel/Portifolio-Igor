@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const skills = [
   { name: 'HTML', icon: 'html5' },
   { name: 'CSS', icon: 'css3' },
@@ -14,7 +14,7 @@ const skills = [
   { name: 'Docker', icon: 'docker' },
   { name: 'SQL', icon: 'mysql' },
   { name: 'MongoDB', icon: 'mongodb' },
-]
+] as const
 </script>
 
 <template>
@@ -35,7 +35,7 @@ const skills = [
       </div>
       <!-- Linha com as duas colunas -->
       <div class="row">
-        <div class="col-md-6 p-5">
+        <div class="col-md-6 p-3">
           <h3 class="mb-3 fw-bold fs-4 fs-md-5">Quem sou eu</h3>
           <p>
             Desde os 16 anos, sou fascinado por tecnologia e dados. Essa paixão me levou a cursar
