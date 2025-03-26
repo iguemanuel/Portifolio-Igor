@@ -44,7 +44,7 @@ onMounted(() => {
           class="d-none d-md-flex col-md-4 d-flex justify-content-center align-items-center mt-5"
         >
           <img
-            src="@/assets/img/perfil.png"
+            src="@/public/img/perfil.png"
             alt="Igor Emanuel"
             class="icon-perfil img-fluid rounded-circle"
             style="max-width: 300px; width: 100%"
