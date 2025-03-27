@@ -18,7 +18,7 @@ const skills = [
 </script>
 
 <template>
-  <section id="about" class="py-5 px-3 ms-md-3 me-md-3" data-scroll-section>
+  <section id="about" class="py-3 px-3 ms-md-3 me-md-3" data-scroll-section>
     <div class="container">
       <!-- Linha separada para o título -->
       <div class="row">
