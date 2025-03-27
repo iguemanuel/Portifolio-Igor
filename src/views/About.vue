@@ -18,7 +18,7 @@ const skills = [
 </script>
 
 <template>
-  <section id="about" class="py-3 px-3 ms-md-3 me-md-3" data-scroll-section>
+  <section id="about" class="py-5 px-3 ms-md-3 me-md-3" data-scroll-section>
     <div class="container">
       <!-- Linha separada para o título -->
       <div class="row">
@@ -34,9 +34,9 @@ const skills = [
         </div>
       </div>
       <!-- Linha com as duas colunas -->
-      <div class="row">
+      <div class="row mt-2">
         <div class="col-md-6 p-3">
-          <h3 class="mb-3 fw-bold fs-4 fs-md-5">Quem sou eu</h3>
+          <h3 class="mb-3 fw-bold fs-4 fs-md-5 text-center">Quem sou eu</h3>
           <p>
             Desde os 16 anos, sou fascinado por tecnologia e dados. Essa paixão me levou a cursar
             Sistemas para Internet na UTFPR e a me dedicar ao desenvolvimento de aplicações e
@@ -63,8 +63,8 @@ const skills = [
           </a>
         </div>
 
-        <div class="col-md-6 p-5">
-          <h3 class="mb-4 fw-bold fs-4 fs-md-5">Minhas habilidades</h3>
+        <div class="col-md-6 p-3">
+          <h3 class="mb-4 fw-bold fs-4 fs-md-5 text-center">Minhas habilidades</h3>
           <div class="row row-cols-3 row-cols-md-4 g-3">
             <div
               v-for="skill in skills"
