@@ -3,7 +3,7 @@ import { Skills as skills } from '@/db/Skills'
 </script>
 
 <template>
-  <section id="about" class="py-5 px-3 ms-md-3 me-md-3" data-scroll-section>
+  <section id="about" class="py-3 px-3 ms-md-3 me-md-3" data-scroll-section>
     <div class="container">
       <div class="row">
         <div class="text-center mb-4">
