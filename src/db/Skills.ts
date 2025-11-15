@@ -1,0 +1,17 @@
+export const Skills = [
+  { name: 'HTML', icon: 'html5' },
+  { name: 'CSS', icon: 'css3' },
+  { name: 'JavaScript', icon: 'javascript' },
+  { name: 'TypeScript', icon: 'typescript' },
+  { name: 'PHP', icon: 'php' },
+  { name: 'Git', icon: 'git' },
+  { name: 'Node.js', icon: 'nodejs' },
+  { name: 'Vue.js', icon: 'vuejs' },
+  { name: 'Angular', icon: 'angular' },
+  { name: 'Bootstrap', icon: 'bootstrap' },
+  { name: 'Tailwind', icon: 'tailwindcss' },
+  { name: 'Docker', icon: 'docker' },
+  { name: 'SQL', icon: 'mysql' },
+  { name: 'MongoDB', icon: 'mongodb' },
+  { name: 'OutSystems', icon: 'outsystems', custom: true },
+]

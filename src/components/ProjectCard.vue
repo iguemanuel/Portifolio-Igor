@@ -2,7 +2,6 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, type PropType } from 'vue'
 
-// Definição da estrutura de um projeto
 interface Project {
   title: string
   description: string
@@ -12,7 +11,6 @@ interface Project {
   githubUrl?: string
 }
 
-// Definição das props com tipagem correta
 const props = defineProps({
   projects: { type: Array as PropType<Project[]>, required: true },
   currentProject: { type: Number, required: true },
@@ -21,7 +19,6 @@ const props = defineProps({
   nextProject: { type: Function as PropType<() => void>, required: true },
 })
 
-// Garante que `project` sempre tenha um valor válido
 const project = computed<Project>(
   () =>
     props.projects[props.currentProject] || {
@@ -31,7 +28,7 @@ const project = computed<Project>(
       tags: [],
       liveUrl: '',
       githubUrl: '',
-    },
+    }
 )
 </script>
 

@@ -1,26 +1,10 @@
 <script setup lang="ts">
-const skills = [
-  { name: 'HTML', icon: 'html5' },
-  { name: 'CSS', icon: 'css3' },
-  { name: 'JavaScript', icon: 'javascript' },
-  { name: 'TypeScript', icon: 'typescript' },
-  { name: 'PHP', icon: 'php' },
-  { name: 'Git', icon: 'git' },
-  { name: 'Node.js', icon: 'nodejs' },
-  { name: 'Vue.js', icon: 'vuejs' },
-  { name: 'Angular', icon: 'angular' },
-  { name: 'Bootstrap', icon: 'bootstrap' },
-  { name: 'Tailwind', icon: 'tailwindcss' },
-  { name: 'Docker', icon: 'docker' },
-  { name: 'SQL', icon: 'mysql' },
-  { name: 'MongoDB', icon: 'mongodb' },
-] as const
+import { Skills as skills } from '@/db/Skills'
 </script>
 
 <template>
   <section id="about" class="py-5 px-3 ms-md-3 me-md-3" data-scroll-section>
     <div class="container">
-      <!-- Linha separada para o título -->
       <div class="row">
         <div class="text-center mb-4">
           <h2 class="mb-2 fw-bold text-white fs-3 fs-md-2">Sobre</h2>
@@ -33,32 +17,37 @@ const skills = [
           </p>
         </div>
       </div>
-      <!-- Linha com as duas colunas -->
       <div class="row mt-2">
         <div class="col-md-6 p-3">
           <h3 class="mb-3 fw-bold fs-4 fs-md-5 text-center">Quem sou eu</h3>
           <p>
-            Desde os 16 anos, sou fascinado por tecnologia e dados. Essa paixão me levou a cursar
-            Sistemas para Internet na UTFPR e a me dedicar ao desenvolvimento de aplicações e
-            análise de dados. Atualmente, trabalho como Desenvolvedor e Data Analyst Freelancer,
-            criando soluções do zero e transformando dados em insights estratégicos.
+            Minha paixão por tecnologia começou cedo, aos 16 anos, quando descobri o impacto que a
+            combinação entre desenvolvimento e dados pode gerar nos negócios. Por isso decidi cursar
+            <strong>Sistemas para Internet na UTFPR</strong> e a atuar de forma prática no
+            desenvolvimento de aplicações e na análise de dados.
           </p>
           <p>
-            Tenho experiência no desenvolvimento de dashboards, automação de processos e na
-            construção de aplicações que realmente fazem a diferença. Gosto de desafios e estou
-            sempre em busca de oportunidades para aprender e evoluir profissionalmente.
+            Hoje trabalho como <strong>Desenvolvedor Web</strong>, criando soluções que vão desde a
+            construção de interfaces e APIs até a automação de processos e análise de indicadores.
+            Gosto de entender o problema de negócio, estudar as possibilidades e entregar algo que
+            gere resultado real para quem usa.
           </p>
           <p>
-            Fora do trabalho, sou daqueles que adoram um bom jogo de futebol, seja na vida real ou
-            no FIFA. Também curto basquete e CS, e se for para falar de time, sou Corinthians! Se
-            minha trajetória fizer sentido para sua empresa, ficarei feliz em bater um papo!
+            Sou movido por desafios e aprendizado contínuo — seja aprimorando meu código, estudando
+            novas integrações ou buscando formas de transformar dados em decisões estratégicas.
+            Acredito em soluções simples, eficientes e feitas com propósito.
           </p>
           <p>
-            Para conhecer mais sobre minha experiência e habilidades, você pode acessar meu
-            currículo abaixo
+            Fora da rotina técnica, sou apaixonado por esportes e games. Futebol, basquete e CS
+            fazem parte do meu dia a dia.
+          </p>
+          <p>
+            Caso meu perfil faça sentido para sua empresa ou projeto, será um prazer conversar.
+            Abaixo, você encontra meu currículo com mais detalhes sobre minhas experiências e
+            habilidades.
           </p>
 
-          <a href="/cv_igor.pdf" download>
+          <a href="/curriculo-igor.pdf" download>
             <button class="btn btn-primary mt-4">Baixar CV</button>
           </a>
         </div>
@@ -75,6 +64,13 @@ const skills = [
                 class="icon-container d-flex align-items-center justify-content-center rounded-circle p-2 p-md-3"
               >
                 <img
+                  v-if="skill.custom"
+                  :src="`/src/assets/${skill.icon}.png`"
+                  :alt="skill.name"
+                  class="img-fluid icon"
+                />
+                <img
+                  v-else
                   :src="`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`"
                   :alt="skill.name"
                   class="img-fluid icon"

@@ -9,7 +9,7 @@ const typewriterElement = ref<HTMLElement | null>(null)
 onMounted(() => {
   if (typewriterElement.value) {
     new Typewriter(typewriterElement.value, {
-      strings: ['Desenvolvedor Front-end', 'Data Analyst'],
+      strings: ['Desenvolvedor Web', ''],
       autoStart: true,
       loop: true,
       cursor: '|',
@@ -22,13 +22,10 @@ onMounted(() => {
 
 <template>
   <section class="container-fluid min-vh-100 d-flex flex-column">
-    <!-- Navbar no topo -->
     <NavbarComponent class="navbar-sticky" />
 
     <div class="container d-flex justify-content-center align-items-center flex-column flex-grow-1">
-      <!-- Conteúdo principal -->
       <div class="row w-100 text-center text-md-start flex-grow-1 d-flex align-items-center">
-        <!-- Texto -->
         <div class="col-md-8 d-flex flex-column justify-content-center p-3">
           <h2>Olá, sou Igor Emanuel</h2>
           <h1 ref="typewriterElement"></h1>
@@ -39,7 +36,6 @@ onMounted(() => {
           </p>
         </div>
 
-        <!-- Imagem -->
         <div
           class="d-none d-md-flex col-md-4 d-flex justify-content-center align-items-center mt-5"
         >
@@ -89,20 +85,17 @@ p {
   font-weight: lighter;
 }
 
-/* Ajustes para responsividade da imagem */
 .icon-perfil {
   max-width: 300px;
   width: 100%;
 }
 
-/* Ajustes de espaçamento para a navbar */
 .navbar-sticky {
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
-/* Ajuste para as redes sociais */
 .social a {
   color: #fff;
   transition: color 0.3s ease;
@@ -112,7 +105,6 @@ p {
   color: var(--tertiary-color);
 }
 
-/* Centralização do conteúdo */
 .container {
   display: flex;
   justify-content: center;
@@ -120,7 +112,6 @@ p {
   flex-direction: column;
 }
 
-/* Ajuste para a altura do container */
 section.container-fluid {
   min-height: 100vh;
   display: flex;
