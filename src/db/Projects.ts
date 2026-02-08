@@ -1,5 +1,14 @@
 export const projects = [
   {
+    title: 'Valdeci Auto-Center',
+    description:
+      'Desenvolvi uma landing page para a empresa Valdeci Auto-Center  com o objetivo de aumentar a presença online e atrair mais clientes. A página apresenta os serviços oferecidos, depoimentos de clientes satisfeitos e um formulário de contato para facilitar a comunicação. O design é moderno e responsivo, garantindo uma ótima experiência em dispositivos móveis.',
+    image: '/img/valdeci-auto-center.png',
+    tags: ['Vue', 'TypeScript', 'CSS', 'Tailwind'],
+    liveUrl: 'https://valdeci-auto-center.vercel.app/',
+    githubUrl: 'https://github.com/iguemanuel/Valdeci-Auto-Center',
+  },
+  {
     title: 'Barbearia Machado',
     description:
       'Barbearia Machado é uma plataforma de agendamento online desenvolvida para proporcionar uma experiência simples e eficiente aos clientes que desejam marcar horários para serviços de barbearia. Com um design limpo e intuitivo, o site permite que os usuários visualizem os horários disponíveis e realizem agendamentos de forma rápida e prática',
@@ -23,16 +32,7 @@ export const projects = [
       'O Control Finance é uma aplicação web desenvolvido para gerenciar finanças de forma simples e eficiente. Ele permite o apontamento de receitas e despesas, oferecendo uma visão clara do saldo financeiro. Além disso, o aplicativo permite a categorização das transações, gráficos de análise financeira, ajudando os usuários a planejarem suas finanças.',
     image: '/img/control-finance.png',
     tags: ['Angular', 'TypeScript', 'CSS', 'Tailwind', 'SQlite', 'Pocktbase'],
-    liveUrl: 'https://control-finance-e5drgpihu-igor-emanuels-projects.vercel.app',
+    liveUrl: 'https://control-finance-psi.vercel.app/login',
     githubUrl: 'https://github.com/iguemanuel/Control-Finance',
-  },
-  {
-    title: 'Stream View',
-    description:
-      'Stream View é prototipo web que permite que os usuários visualizem e pesquisem informações sobre filmes e séries. Com uma interface intuitiva e responsiva, o site exibe detalhes sobre filmes e séries, como sinopse, elenco, diretor e avaliações. Além disso, os usuários podem pesquisar por títulos específicos e visualizar trailers de filmes.',
-    image: '/img/stream-box.png',
-    tags: ['Vue', 'TypeScript', 'CSS', 'Tailwind'],
-    liveUrl: 'https://stream-box-vwff-c3vsf4lue-igor-emanuels-projects.vercel.app/',
-    githubUrl: 'https://github.com/iguemanuel/Stream-Box',
   },
 ]

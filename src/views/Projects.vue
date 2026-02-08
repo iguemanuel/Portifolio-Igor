@@ -4,11 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { projects as ProjectData } from '@/db/Projects'
 import ProjectCard from '@/components/ProjectCard.vue'
 
-// Estado reativo
 const currentProject = ref(0)
 const projects = ProjectData
 
-// Métodos para navegação
 const setCurrentProject = (index: number) => {
   if (index >= 0 && index < projects.length) {
     currentProject.value = index

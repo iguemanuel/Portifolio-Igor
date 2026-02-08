@@ -30,19 +30,17 @@ const handleSubmit = async () => {
         subject: form.value.subject,
         message: form.value.message,
       },
-      apiKey, // Substitui o antigo userId
+      apiKey
     )
 
     console.log('Email enviado com sucesso:', response)
 
-    // Exibe o alerta de sucesso com Toastification
     toast.success('Mensagem enviada! Obrigado pelo contato. Responderei em breve.')
 
     form.value = { name: '', email: '', subject: '', message: '' }
   } catch (error: unknown) {
     console.error('Erro ao enviar:', error)
 
-    // Verifica se o erro tem uma mensagem
     const errorMessage = error instanceof Error ? error.message : 'Erro desconhecido'
     toast.error(`Erro ao enviar: ${errorMessage}`)
   } finally {

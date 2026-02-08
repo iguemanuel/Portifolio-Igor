@@ -1,26 +1,10 @@
 <script setup lang="ts">
-const skills = [
-  { name: 'HTML', icon: 'html5' },
-  { name: 'CSS', icon: 'css3' },
-  { name: 'JavaScript', icon: 'javascript' },
-  { name: 'TypeScript', icon: 'typescript' },
-  { name: 'PHP', icon: 'php' },
-  { name: 'Git', icon: 'git' },
-  { name: 'Node.js', icon: 'nodejs' },
-  { name: 'Vue.js', icon: 'vuejs' },
-  { name: 'Angular', icon: 'angular' },
-  { name: 'Bootstrap', icon: 'bootstrap' },
-  { name: 'Tailwind', icon: 'tailwindcss' },
-  { name: 'Docker', icon: 'docker' },
-  { name: 'SQL', icon: 'mysql' },
-  { name: 'MongoDB', icon: 'mongodb' },
-] as const
+import { Skills as skills } from '@/db/Skills'
 </script>
 
 <template>
   <section id="about" class="py-3 px-3 ms-md-3 me-md-3" data-scroll-section>
     <div class="container">
-      <!-- Linha separada para o título -->
       <div class="row">
         <div class="text-center mb-4">
           <h2 class="mb-2 fw-bold text-white fs-3 fs-md-2">Sobre</h2>
@@ -33,38 +17,34 @@ const skills = [
           </p>
         </div>
       </div>
-      <!-- Linha com as duas colunas -->
-      <div class="row">
+      <div class="row mt-2">
         <div class="col-md-6 p-3">
-          <h3 class="mb-3 fw-bold fs-4 fs-md-5">Quem sou eu</h3>
+          <h3 class="mb-3 fw-bold fs-4 fs-md-5 text-center">Quem sou eu</h3>
           <p>
-            Desde os 16 anos, sou fascinado por tecnologia e dados. Essa paixão me levou a cursar
-            Sistemas para Internet na UTFPR e a me dedicar ao desenvolvimento de aplicações e
-            análise de dados. Atualmente, trabalho como Desenvolvedor e Data Analyst Freelancer,
-            criando soluções do zero e transformando dados em insights estratégicos.
+            Sou <strong>Desenvolvedor Full Stack</strong> especializado em sistemas ERP e
+            integrações críticas. Atualmente no meu trabalho, foco na evolução de módulos
+            estratégicos — como Pedidos de Compra e Gestão Fiscal — transformando regras de negócio
+            complexas em fluxos automatizados e eficientes.
           </p>
           <p>
-            Tenho experiência no desenvolvimento de dashboards, automação de processos e na
-            construção de aplicações que realmente fazem a diferença. Gosto de desafios e estou
-            sempre em busca de oportunidades para aprender e evoluir profissionalmente.
+            Veja minhas principais stacks ao lado. Essa combinação me permite não apenas desenvolver
+            software, mas entregar soluções que garantem a integridade dos dados e auxiliam na
+            tomada de decisão estratégica.
           </p>
           <p>
-            Fora do trabalho, sou daqueles que adoram um bom jogo de futebol, seja na vida real ou
-            no FIFA. Também curto basquete e CS, e se for para falar de time, sou Corinthians! Se
-            minha trajetória fizer sentido para sua empresa, ficarei feliz em bater um papo!
-          </p>
-          <p>
-            Para conhecer mais sobre minha experiência e habilidades, você pode acessar meu
-            currículo abaixo
+            Também atuo como <strong>Freelancer</strong>, aplico essa experiência corporativa para
+            construir aplicações robustas, Landing pages, APIs, Dashboards sob medida. Atualmente
+            cursando Sistemas para Internet pela <strong>UTFPR</strong> e busco constantemente unir
+            tecnologia de ponta com um propósito: gerar resultado real para quem usa.
           </p>
 
-          <a href="/cv_igor.pdf" download>
+          <a href="/curriculo-igor.pdf" download>
             <button class="btn btn-primary mt-4">Baixar CV</button>
           </a>
         </div>
 
-        <div class="col-md-6 p-5">
-          <h3 class="mb-4 fw-bold fs-4 fs-md-5">Minhas habilidades</h3>
+        <div class="col-md-6 p-3">
+          <h3 class="mb-4 fw-bold fs-4 fs-md-5 text-center">Minhas stacks</h3>
           <div class="row row-cols-3 row-cols-md-4 g-3">
             <div
               v-for="skill in skills"
@@ -75,6 +55,13 @@ const skills = [
                 class="icon-container d-flex align-items-center justify-content-center rounded-circle p-2 p-md-3"
               >
                 <img
+                  v-if="skill.custom"
+                  :src="`/public/img/${skill.icon}.png`"
+                  :alt="skill.name"
+                  class="img-fluid icon"
+                />
+                <img
+                  v-else
                   :src="`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`"
                   :alt="skill.name"
                   class="img-fluid icon"
