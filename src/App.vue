@@ -30,11 +30,11 @@ onUnmounted(() => {
     <section id="home" class="home">
       <Home />
     </section>
-    <section id="about" class="section">
-      <About />
-    </section>
     <section id="projects" class="section">
       <Projects />
+    </section>
+    <section id="about" class="section">
+      <About />
     </section>
     <section id="contact" class="section">
       <Contact />

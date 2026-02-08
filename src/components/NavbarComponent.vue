@@ -16,8 +16,8 @@ const scrollTo = (sectionId: string) => {
       </div>
       <ul class="navbar-links">
         <li><a href="#home" @click.prevent="scrollTo('home')">Home</a></li>
-        <li><a href="#about" @click.prevent="scrollTo('about')">Sobre</a></li>
         <li><a href="#projects" @click.prevent="scrollTo('projects')">Projetos</a></li>
+        <li><a href="#about" @click.prevent="scrollTo('about')">Sobre</a></li>
         <li><a href="#contact" @click.prevent="scrollTo('contact')">Contato</a></li>
       </ul>
     </div>
