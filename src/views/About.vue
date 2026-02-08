@@ -21,30 +21,21 @@ import { Skills as skills } from '@/db/Skills'
         <div class="col-md-6 p-3">
           <h3 class="mb-3 fw-bold fs-4 fs-md-5 text-center">Quem sou eu</h3>
           <p>
-            Minha paixão por tecnologia começou cedo, aos 16 anos, quando descobri o impacto que a
-            combinação entre desenvolvimento e dados pode gerar nos negócios. Por isso decidi cursar
-            <strong>Sistemas para Internet na UTFPR</strong> e a atuar de forma prática no
-            desenvolvimento de aplicações e na análise de dados.
+            Sou <strong>Desenvolvedor Full Stack</strong> especializado em sistemas ERP e
+            integrações críticas. Atualmente no meu trabalho, foco na evolução de módulos
+            estratégicos — como Pedidos de Compra e Gestão Fiscal — transformando regras de negócio
+            complexas em fluxos automatizados e eficientes.
           </p>
           <p>
-            Hoje trabalho como <strong>Desenvolvedor Web</strong>, criando soluções que vão desde a
-            construção de interfaces e APIs até a automação de processos e análise de indicadores.
-            Gosto de entender o problema de negócio, estudar as possibilidades e entregar algo que
-            gere resultado real para quem usa.
+            Veja minhas principais stacks ao lado. Essa combinação me permite não apenas desenvolver
+            software, mas entregar soluções que garantem a integridade dos dados e auxiliam na
+            tomada de decisão estratégica.
           </p>
           <p>
-            Sou movido por desafios e aprendizado contínuo — seja aprimorando meu código, estudando
-            novas integrações ou buscando formas de transformar dados em decisões estratégicas.
-            Acredito em soluções simples, eficientes e feitas com propósito.
-          </p>
-          <p>
-            Fora da rotina técnica, sou apaixonado por esportes e games. Futebol, basquete e CS
-            fazem parte do meu dia a dia.
-          </p>
-          <p>
-            Caso meu perfil faça sentido para sua empresa ou projeto, será um prazer conversar.
-            Abaixo, você encontra meu currículo com mais detalhes sobre minhas experiências e
-            habilidades.
+            Também atuo como <strong>Freelancer</strong>, aplico essa experiência corporativa para
+            construir aplicações robustas, Landing pages, APIs, Dashboards sob medida. Atualmente
+            cursando Sistemas para Internet pela <strong>UTFPR</strong> e busco constantemente unir
+            tecnologia de ponta com um propósito: gerar resultado real para quem usa.
           </p>
 
           <a href="/curriculo-igor.pdf" download>
@@ -53,7 +44,7 @@ import { Skills as skills } from '@/db/Skills'
         </div>
 
         <div class="col-md-6 p-3">
-          <h3 class="mb-4 fw-bold fs-4 fs-md-5 text-center">Minhas habilidades</h3>
+          <h3 class="mb-4 fw-bold fs-4 fs-md-5 text-center">Minhas stacks</h3>
           <div class="row row-cols-3 row-cols-md-4 g-3">
             <div
               v-for="skill in skills"
