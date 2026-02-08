@@ -56,7 +56,7 @@ import { Skills as skills } from '@/db/Skills'
               >
                 <img
                   v-if="skill.custom"
-                  :src="`/src/assets/${skill.icon}.png`"
+                  :src="`/public/img/${skill.icon}.png`"
                   :alt="skill.name"
                   class="img-fluid icon"
                 />
