@@ -1,30 +1,10 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
-import LocomotiveScroll from 'locomotive-scroll'
-import NavbarComponent from './components/NavbarComponent.vue'
 import About from './views/About.vue'
 import Home from './views/Home.vue'
 import Projects from './views/Projects.vue'
 import Contact from './views/Contact.vue'
-
-const locoScroll = ref<LocomotiveScroll | null>(null)
-
-onMounted(() => {
-  if (window.innerWidth > 768) {
-    locoScroll.value = new LocomotiveScroll({
-      el: document.querySelector('.fullpage-container') as HTMLElement,
-      smooth: true,
-    })
-  } else {
-    document.documentElement.style.overflow = 'auto' // Garante que o mobile tenha scroll normal
-    document.body.style.overflow = 'auto'
-  }
-})
-
-onUnmounted(() => {
-  locoScroll.value?.destroy()
-})
 </script>
+
 <template>
   <div class="fullpage-container">
     <section id="home" class="home">
