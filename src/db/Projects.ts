@@ -1,38 +1,94 @@
-export const projects = [
+export type ProjectCategory =
+  | 'landing'
+  | 'ecommerce'
+  | 'web-system'
+  | 'dashboard'
+  | 'saas'
+  | 'app'
+  | 'erp'
+  | 'api'
+  | 'automation'
+
+export type ProjectOrigin = 'client' | 'freelance' | 'academic' | 'personal'
+
+export type ProjectStatus = 'online' | 'private' | 'in-development' | 'offline'
+
+export interface ProjectRecord {
+  slug: string
+  title: string
+  category: ProjectCategory
+  origin: ProjectOrigin
+  status: ProjectStatus
+  year: number
+  featured?: boolean
+  image: string
+  mobileImage?: string
+  tags: string[]
+  liveUrl?: string
+  githubUrl?: string
+}
+
+export const projects: ProjectRecord[] = [
   {
+    slug: 'valdeci-auto-center',
     title: 'Valdeci Auto-Center',
-    description:
-      'Desenvolvi uma landing page para a empresa Valdeci Auto-Center  com o objetivo de aumentar a presença online e atrair mais clientes. A página apresenta os serviços oferecidos, depoimentos de clientes satisfeitos e um formulário de contato para facilitar a comunicação. O design é moderno e responsivo, garantindo uma ótima experiência em dispositivos móveis.',
+    category: 'landing',
+    origin: 'client',
+    status: 'online',
+    year: 2024,
+    featured: true,
     image: '/img/valdeci-auto-center.png',
     tags: ['Vue', 'TypeScript', 'CSS', 'Tailwind'],
     liveUrl: 'https://valdeci-auto-center.vercel.app/',
     githubUrl: 'https://github.com/iguemanuel/Valdeci-Auto-Center',
   },
   {
+    slug: 'barbearia-machado',
     title: 'Barbearia Machado',
-    description:
-      'Barbearia Machado é uma plataforma de agendamento online desenvolvida para proporcionar uma experiência simples e eficiente aos clientes que desejam marcar horários para serviços de barbearia. Com um design limpo e intuitivo, o site permite que os usuários visualizem os horários disponíveis e realizem agendamentos de forma rápida e prática',
+    category: 'web-system',
+    origin: 'freelance',
+    status: 'online',
+    year: 2024,
     image: '/img/barbaearia-machado.png',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Webpack', 'SQLite', 'Pocktbase'],
+    tags: ['JavaScript', 'PocketBase', 'SQLite', 'Webpack'],
     liveUrl: 'https://barbearia-machado.vercel.app/',
     githubUrl: 'https://github.com/iguemanuel/Barbearia-Machado',
   },
   {
+    slug: 'cardapio-do-chef',
     title: 'Cardapio do Chef',
-    description:
-      'É um projeto de um Cardápio Digital é uma aplicação web interativa onde os usuários podem visualizar itens de um cardápio e adicionar produtos ao carrinho. Desenvolvido em JavaScript, ele utiliza manipulação do DOM para exibir itens, gerenciar o carrinho de compras, calcular o total, envio de mensagem via WhatsApp com os detalhes do pedido',
+    category: 'ecommerce',
+    origin: 'personal',
+    status: 'online',
+    year: 2023,
     image: '/img/codigo-do-chef.png',
     tags: ['HTML', 'CSS', 'JavaScript'],
     liveUrl: 'https://cardapio-eta-two.vercel.app/',
     githubUrl: 'https://github.com/iguemanuel/Cardapio-Codigo-Chef',
   },
   {
+    slug: 'control-finance',
     title: 'Control Finance',
-    description:
-      'O Control Finance é uma aplicação web desenvolvido para gerenciar finanças de forma simples e eficiente. Ele permite o apontamento de receitas e despesas, oferecendo uma visão clara do saldo financeiro. Além disso, o aplicativo permite a categorização das transações, gráficos de análise financeira, ajudando os usuários a planejarem suas finanças.',
+    category: 'dashboard',
+    origin: 'personal',
+    status: 'online',
+    year: 2024,
+    featured: true,
     image: '/img/control-finance.png',
-    tags: ['Angular', 'TypeScript', 'CSS', 'Tailwind', 'SQlite', 'Pocktbase'],
+    tags: ['Angular', 'TypeScript', 'PocketBase', 'Tailwind'],
     liveUrl: 'https://control-finance-psi.vercel.app/login',
     githubUrl: 'https://github.com/iguemanuel/Control-Finance',
+  },
+  {
+    slug: 'lc-assessoria',
+    title: 'LC Assessoria',
+    category: 'landing',
+    origin: 'client',
+    status: 'online',
+    year: 2025,
+    featured: true,
+    image: '/img/lc-assessoria.png',
+    tags: ['Vue', 'TypeScript', 'Tailwind', 'CSS'],
+    liveUrl: 'https://www.lcassessoria.com/',
   },
 ]
