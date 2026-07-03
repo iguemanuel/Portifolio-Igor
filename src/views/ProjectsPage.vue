@@ -39,6 +39,7 @@ const {
         :origins="availableOrigins"
         :categories="availableCategories"
         :statuses="availableStatuses"
+        @reset="resetFilters"
       />
     </div>
 
@@ -77,8 +78,11 @@ const {
 
 <style scoped>
 .projects-page {
-  min-height: 100vh;
+  height: 100vh;
   overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   background: var(--bg-color);
   padding-top: 5rem;
 }
