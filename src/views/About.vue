@@ -42,7 +42,6 @@ const indicators = computed<AboutIndicator[]>(() => {
             <div class="about-premium__card-info">
               <span class="about-premium__card-name">Igor Emanuel</span>
               <span class="about-premium__card-role">{{ t('about.cardRole') }}</span>
-              <span class="about-premium__card-available">{{ t('about.badgeAvailable') }}</span>
             </div>
           </div>
         </div>
@@ -221,22 +220,6 @@ const indicators = computed<AboutIndicator[]>(() => {
   font-weight: 500;
   color: var(--about-accent);
   letter-spacing: 0.04em;
-}
-
-.about-premium__card-available {
-  display: inline-block;
-  width: fit-content;
-  margin-top: 0.45rem;
-  padding: 0.22rem 0.55rem;
-  border-radius: 999px;
-  border: 1px solid rgba(118, 192, 70, 0.35);
-  background: rgba(118, 192, 70, 0.08);
-  font-family: var(--font-family);
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--about-accent);
 }
 
 /* ─── Section indicator ─── */
