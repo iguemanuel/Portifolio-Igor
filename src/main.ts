@@ -9,7 +9,7 @@ import 'vue-toastification/dist/index.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faInstagram, faLinkedin, faGithub, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
-import { faBoxOpen, faEnvelope, faPhone, faBars, faXmark, faArrowLeft, faArrowRight, faChevronLeft, faChevronRight, faBriefcase, faRocket, faLayerGroup, faCircleCheck } from '@fortawesome/free-solid-svg-icons'
+import { faBoxOpen, faEnvelope, faPhone, faBars, faXmark, faArrowLeft, faArrowRight, faChevronLeft, faChevronRight, faBriefcase, faRocket, faLayerGroup, faCircleCheck, faDownload } from '@fortawesome/free-solid-svg-icons'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -38,7 +38,8 @@ library.add(
   faBriefcase,
   faRocket,
   faLayerGroup,
-  faCircleCheck
+  faCircleCheck,
+  faDownload
 )
 
 const app = createApp(App)
