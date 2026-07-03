@@ -1,25 +1,20 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, watch } from 'vue'
+import { RouterLink } from 'vue-router'
 import Typewriter from 'typewriter-effect/dist/core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { useI18n } from '@/i18n'
 import { useReveal } from '@/composables/useReveal'
-import { useProjects } from '@/composables/useProjects'
 import { scrollToSection } from '@/composables/useScrollContainer'
-import HeroBadge from '@/components/hero/HeroBadge.vue'
 import HeroStats from '@/components/hero/HeroStats.vue'
 import HeroFloatingCard from '@/components/hero/HeroFloatingCard.vue'
 
 const { t, tm, locale } = useI18n()
-const { projects } = useProjects()
 const { el, visible } = useReveal()
 
 const typewriterElement = ref<HTMLElement | null>(null)
 
 const proofItems = computed(() => tm.value('hero.proof'))
-const projectsValue = computed(() =>
-  t.value('hero.cards.projectsValue', { count: projects.value.length }),
-)
 
 const scrollTo = (sectionId: string) => {
   scrollToSection(sectionId)
@@ -53,30 +48,28 @@ watch(locale, () => initTypewriter())
     <div ref="el" class="hero-inner" :class="{ 'is-revealed': visible }">
       <div class="hero-content">
         <div class="hero-text">
-          <HeroBadge :label="t('hero.badge')" class="reveal" style="--i: 0" />
-
-          <h1 class="hero-title reveal" style="--i: 1">
-            {{ t('hero.headlinePrefix') }}
+          <h1 class="hero-title reveal" style="--i: 0">
+            <span class="hero-title__prefix">{{ t('hero.headlinePrefix') }}</span>
             <span ref="typewriterElement" class="hero-title__rotating" />
           </h1>
 
-          <p class="hero-subheadline reveal" style="--i: 2">{{ t('hero.subheadline') }}</p>
+          <p class="hero-subheadline reveal" style="--i: 1">{{ t('hero.subheadline') }}</p>
 
-          <HeroStats :items="proofItems" class="reveal" style="--i: 3" />
+          <HeroStats :items="proofItems" class="reveal" style="--i: 2" />
 
-          <div class="hero-ctas reveal" style="--i: 4">
+          <div class="hero-ctas reveal" style="--i: 3">
             <button class="btn-cta btn-cta-primary" @click="scrollTo('contact')">
               {{ t('hero.ctaContact') }}
             </button>
             <button class="btn-cta btn-cta-outline" @click="scrollTo('projects')">
               {{ t('hero.ctaProjects') }}
             </button>
-            <a href="/curriculo-igor.pdf" download class="btn-cta btn-cta-ghost">
+            <RouterLink to="/cv" class="btn-cta btn-cta-ghost">
               {{ t('hero.ctaCv') }}
-            </a>
+            </RouterLink>
           </div>
 
-          <nav class="hero-social reveal" style="--i: 5" aria-label="Redes sociais">
+          <nav class="hero-social reveal" style="--i: 4" aria-label="Redes sociais">
             <a href="https://www.instagram.com/iguemanuel/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <font-awesome-icon :icon="['fab', 'instagram']" />
             </a>
@@ -105,7 +98,7 @@ watch(locale, () => initTypewriter())
           <HeroFloatingCard
             icon="rocket"
             :label="t('hero.cards.projectsLabel')"
-            :value="projectsValue"
+            :value="t('hero.cards.projectsValue')"
             class="hero-float hero-float--projects"
           />
           <HeroFloatingCard
@@ -113,12 +106,6 @@ watch(locale, () => initTypewriter())
             :label="t('hero.cards.stackLabel')"
             :value="t('hero.cards.stackValue')"
             class="hero-float hero-float--stack"
-          />
-          <HeroFloatingCard
-            icon="circle-check"
-            :label="t('hero.cards.availabilityLabel')"
-            :value="t('hero.cards.availabilityValue')"
-            class="hero-float hero-float--available"
           />
         </div>
       </div>
@@ -187,17 +174,23 @@ watch(locale, () => initTypewriter())
 }
 
 .hero-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
   font-family: var(--font-family-secondary);
   font-size: clamp(1.85rem, 3.6vw, 3rem);
   font-weight: 700;
   line-height: 1.14;
-  color: var(--text-color);
   margin: 0;
+}
+
+.hero-title__prefix {
+  color: var(--text-color);
 }
 
 .hero-title__rotating {
   color: var(--section-accent, var(--tertiary-color));
-  display: inline-block;
+  display: block;
   min-height: 1.2em;
 }
 
@@ -371,12 +364,6 @@ watch(locale, () => initTypewriter())
   animation-delay: 2.1s;
 }
 
-.hero-float--available {
-  bottom: 6%;
-  right: -2%;
-  animation-delay: 0.7s;
-}
-
 @keyframes hero-float-move {
   0%,
   100% {
@@ -408,7 +395,6 @@ watch(locale, () => initTypewriter())
     max-width: none;
   }
 
-  .hero-float--projects,
   .hero-float--stack {
     display: none;
   }
@@ -418,9 +404,9 @@ watch(locale, () => initTypewriter())
     top: 4%;
   }
 
-  .hero-float--available {
+  .hero-float--projects {
     right: 0;
-    bottom: 2%;
+    top: 4%;
   }
 }
 
