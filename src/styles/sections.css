@@ -1,0 +1,114 @@
+/* Alternância: verde → escuro → verde → escuro → verde → escuro (footer) */
+
+.section--home,
+.section--about-premium,
+.section--experience,
+.section--contact,
+.section--projects {
+  position: relative;
+  isolation: isolate;
+}
+
+.section--home::before,
+.section--about-premium::before,
+.section--experience::before,
+.section--contact::before,
+.section--projects::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section--home > *,
+.section--about-premium > *,
+.section--experience > *,
+.section--contact > *,
+.section--projects > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── VERDE: Home ── */
+.section--home {
+  --section-accent: #76c046;
+  --section-accent-rgb: 118, 192, 70;
+  --section-glow: rgba(118, 192, 70, 0.16);
+  --section-text-muted: rgba(237, 238, 237, 0.72);
+  background: linear-gradient(180deg, #181f15 0%, #141a12 45%, #10130e 100%);
+}
+
+.section--home::before {
+  background:
+    radial-gradient(ellipse 70% 55% at 75% 15%, rgba(118, 192, 70, 0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 45% at 15% 85%, rgba(74, 111, 50, 0.14) 0%, transparent 60%);
+}
+
+/* ── ESCURO: Projetos ── */
+.section--projects {
+  --section-accent: #76c046;
+  --section-accent-rgb: 118, 192, 70;
+  --section-glow: rgba(118, 192, 70, 0.1);
+  --section-text-muted: rgba(237, 238, 237, 0.62);
+  background: linear-gradient(180deg, #0c0c0c 0%, #0a0a0a 50%, #090909 100%);
+}
+
+.section--projects::before {
+  background:
+    radial-gradient(ellipse 55% 45% at 20% 35%, rgba(255, 255, 255, 0.02) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 35% at 85% 70%, rgba(118, 192, 70, 0.06) 0%, transparent 65%);
+}
+
+/* ── VERDE: Sobre ── */
+.section--about-premium {
+  --section-accent: #76c046;
+  --section-accent-rgb: 118, 192, 70;
+  --section-glow: rgba(118, 192, 70, 0.14);
+  --section-text-muted: rgba(237, 238, 237, 0.65);
+  background: linear-gradient(180deg, #161f14 0%, #131a11 45%, #10170e 100%);
+}
+
+.section--about-premium::before {
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 25%, rgba(118, 192, 70, 0.1) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 40% at 10% 75%, rgba(74, 111, 50, 0.1) 0%, transparent 60%);
+}
+
+/* ── ESCURO: Experiência ── */
+.section--experience {
+  --section-accent: #76c046;
+  --section-accent-rgb: 118, 192, 70;
+  --section-glow: rgba(118, 192, 70, 0.06);
+  --section-text-muted: rgba(237, 238, 237, 0.6);
+  background: linear-gradient(180deg, #0c0c0c 0%, #0a0a0a 50%, #090909 100%);
+}
+
+.section--experience::before {
+  background:
+    radial-gradient(ellipse 55% 45% at 25% 40%, rgba(255, 255, 255, 0.02) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 35% at 75% 65%, rgba(118, 192, 70, 0.05) 0%, transparent 65%);
+}
+
+/* ── VERDE: Contato ── */
+.section--contact {
+  --section-accent: #76c046;
+  --section-accent-rgb: 118, 192, 70;
+  --section-glow: rgba(118, 192, 70, 0.12);
+  --section-text-muted: rgba(237, 238, 237, 0.72);
+  background: linear-gradient(180deg, #181f15 0%, #141a12 45%, #10130e 100%);
+}
+
+.section--contact::before {
+  background:
+    radial-gradient(ellipse 65% 50% at 30% 20%, rgba(118, 192, 70, 0.11) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 40% at 85% 80%, rgba(74, 111, 50, 0.12) 0%, transparent 60%);
+}
+
+/* ── ESCURO: Footer ── */
+.site-footer-theme {
+  --section-accent: #76c046;
+  --section-accent-rgb: 118, 192, 70;
+  background: linear-gradient(180deg, #0b0b0b 0%, #090909 50%, #070707 100%);
+  border-top: 1px solid rgba(118, 192, 70, 0.12);
+}

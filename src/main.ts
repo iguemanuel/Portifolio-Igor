@@ -8,18 +8,39 @@ import 'vue-toastification/dist/index.css'
 // Importação do ícone necessário
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faInstagram, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
-import { faBoxOpen, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faInstagram, faLinkedin, faGithub, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { faBoxOpen, faEnvelope, faPhone, faBars, faXmark, faArrowLeft, faArrowRight, faChevronLeft, faChevronRight, faBriefcase, faRocket, faLayerGroup, faCircleCheck, faDownload } from '@fortawesome/free-solid-svg-icons'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
+import { updateDocumentMeta } from './i18n'
 import { faEarthAmerica } from '@fortawesome/free-solid-svg-icons/faEarthAmerica'
 
 // Adicionar ícones à biblioteca
-library.add(faInstagram, faLinkedin, faGithub, faBoxOpen, faEnvelope, faPhone, faEarthAmerica)
+library.add(
+  faInstagram,
+  faLinkedin,
+  faGithub,
+  faWhatsapp,
+  faBoxOpen,
+  faEnvelope,
+  faPhone,
+  faEarthAmerica,
+  faBars,
+  faXmark,
+  faArrowLeft,
+  faArrowRight,
+  faChevronLeft,
+  faChevronRight,
+  faBriefcase,
+  faRocket,
+  faLayerGroup,
+  faCircleCheck,
+  faDownload
+)
 
 const app = createApp(App)
 
@@ -29,5 +50,7 @@ app.use(Toast)
 
 // Registrar o componente globalmente
 app.component('font-awesome-icon', FontAwesomeIcon)
+
+updateDocumentMeta()
 
 app.mount('#app')

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap');
+@import './sections.css';
 
 :root {
   --bg-color: #10130e;
@@ -12,24 +13,32 @@
   --font-family: 'Inter', sans-serif;
   --font-family-secondary: 'Poppins', sans-serif;
 
-  /* Tamanhos de fonte baseados na tela */
-  --font-size-sm: 12px;
-  --font-size-base: 14px;
-  --font-size-lg: 16px;
-  --font-size-xl: 18px;
-  --font-size-2xl: 22px;
-  --font-size-3xl: 26px;
+  --font-size-sm: 13px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 28px;
+  --font-size-3xl: clamp(2rem, 5vw, 3rem);
 
-  /* Espaçamentos de linha */
   --line-height-sm: 1.4;
   --line-height-base: 1.6;
   --line-height-lg: 1.8;
+
+  --site-width: 90vw;
+  --site-max-width: 1800px;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -40,7 +49,6 @@ body {
   color: var(--text-color);
 }
 
-/* Tipografia padrão */
 h1 {
   font-size: var(--font-size-3xl);
   font-weight: 700;
@@ -75,11 +83,16 @@ small {
 a {
   color: var(--primary-color);
   text-decoration: none;
+}
 
-  &:hover {
-    color: var(--tertiary-color);
-    transition: color 0.3s;
-  }
+a:hover {
+  color: var(--tertiary-color);
+  transition: color 0.3s;
+}
+
+.site-shell {
+  width: min(var(--site-width), var(--site-max-width));
+  margin-inline: auto;
 }
 
 .btn-primary {
@@ -91,31 +104,58 @@ a {
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s;
+}
 
-  &:hover {
-    background-color: var(--secondary-color);
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Formulários no tema escuro */
+.form-control {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(118, 192, 70, 0.2);
+  color: var(--text-color);
+}
+
+.form-control::placeholder {
+  color: rgba(237, 238, 237, 0.35);
+}
+
+.form-control:focus {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--tertiary-color);
+  color: var(--text-color);
+  box-shadow: 0 0 0 3px rgba(118, 192, 70, 0.15);
+}
+
+.form-label {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --site-width: 94vw;
   }
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   :root {
-    --font-size-sm: 10px;
-    --font-size-base: 12px;
-    --font-size-lg: 14px;
-    --font-size-xl: 16px;
-    --font-size-2xl: 20px;
-    --font-size-3xl: 24px;
+    --site-width: calc(100% - 2rem);
+    --font-size-sm: 12px;
+    --font-size-base: 15px;
+    --font-size-lg: 17px;
+    --font-size-xl: 19px;
+    --font-size-2xl: 24px;
   }
 }
 
 @media (max-width: 480px) {
   :root {
-    --font-size-sm: 9px;
-    --font-size-base: 11px;
-    --font-size-lg: 13px;
-    --font-size-xl: 14px;
-    --font-size-2xl: 18px;
-    --font-size-3xl: 22px;
+    --font-size-sm: 12px;
+    --font-size-base: 15px;
+    --font-size-lg: 16px;
+    --font-size-xl: 18px;
+    --font-size-2xl: 22px;
   }
 }

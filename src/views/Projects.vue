@@ -1,69 +1,106 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { projects as ProjectData } from '@/db/Projects'
-import ProjectCard from '@/components/ProjectCard.vue'
+import ProjectSpotlightShowcase from '@/components/projects/ProjectSpotlightShowcase.vue'
+import { useProjects } from '@/composables/useProjects'
+import { useI18n } from '@/i18n'
 
-const currentProject = ref(0)
-const projects = ProjectData
-
-const setCurrentProject = (index: number) => {
-  if (index >= 0 && index < projects.length) {
-    currentProject.value = index
-  }
-}
-
-const nextProject = () => {
-  currentProject.value = (currentProject.value + 1) % projects.length
-}
-
-const prevProject = () => {
-  currentProject.value = (currentProject.value - 1 + projects.length) % projects.length
-}
+const { t } = useI18n()
+const { projects } = useProjects()
 </script>
 
 <template>
-  <section class="container py-3 text-white">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="mb-2 fw-bold text-white fs-3 fs-md-2">Projetos</h2>
-        <div
-          class="mx-auto linha-titulo mb-3"
-          style="background-color: var(--tertiary-color)"
-        ></div>
-        <p class="text-secondary mx-auto" style="max-width: 600px">
-          Conheça alguns dos projetos que desenvolvi com foco em design moderno e experiência do
-          usuário.
-        </p>
-      </div>
+  <div class="projects-section">
+    <div class="projects-section__inner">
+      <header class="projects-section__head">
+        <p class="projects-section__label">{{ t('projects.sectionLabel') }}</p>
+        <h2 id="projects-headline" class="projects-section__title">{{ t('projects.title') }}</h2>
+      </header>
 
-      <div class="position-relative">
-        <ProjectCard
-          :projects="projects"
-          :currentProject="currentProject"
-          :setCurrentProject="setCurrentProject"
-          :prevProject="prevProject"
-          :nextProject="nextProject"
-        />
-      </div>
+      <ProjectSpotlightShowcase :projects="projects" />
 
-      <div class="text-center mt-5">
-        <a
-          href="https://github.com/iguemanuel?tab=repositories"
-          class="text-decoration-none d-inline-flex align-items-center gap-2"
-          target="_blank"
-        >
-          <span> Ver todos os projetos </span>
-          &gt;
-        </a>
-      </div>
+      <RouterLink to="/projects" class="projects-section__all">
+        {{ t('projects.viewAll') }}
+        <font-awesome-icon icon="arrow-right" />
+      </RouterLink>
     </div>
-  </section>
+  </div>
 </template>
 
 <style scoped>
-.linha-titulo {
-  width: 80px;
-  height: 4px;
+.projects-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0 1.75rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.projects-section__inner {
+  width: min(var(--site-width), var(--site-max-width));
+  margin-inline: auto;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.projects-section__head {
+  flex-shrink: 0;
+}
+
+.projects-section__label {
+  margin: 0 0 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--section-accent, var(--tertiary-color));
+}
+
+.projects-section__title {
+  margin: 0;
+  font-family: var(--font-family-secondary);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-weight: 700;
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+
+.projects-section__all {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.4rem;
+  border: 1px solid rgba(var(--section-accent-rgb, 118, 192, 70), 0.3);
+  color: var(--section-accent, var(--tertiary-color));
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.projects-section__all:hover {
+  background: rgba(var(--section-accent-rgb, 118, 192, 70), 0.1);
+  border-color: var(--section-accent, var(--tertiary-color));
+  color: var(--section-accent, var(--tertiary-color));
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 4.5rem 0 1.25rem;
+    align-items: stretch;
+  }
+
+  .projects-section__inner {
+    gap: 0.85rem;
+  }
 }
 </style>
