@@ -113,6 +113,16 @@ defineProps<{
   background: rgba(237, 238, 237, 0.55);
 }
 
+.project-badges__status[data-status='offline'] {
+  color: rgba(237, 238, 237, 0.55);
+  background: rgba(12, 12, 12, 0.65);
+  border-color: rgba(237, 238, 237, 0.12);
+}
+
+.project-badges__status[data-status='offline'] .project-badges__dot {
+  background: rgba(237, 238, 237, 0.35);
+}
+
 @keyframes badge-pulse {
   0% {
     box-shadow: 0 0 0 0 rgba(var(--section-accent-rgb, 118, 192, 70), 0.65);

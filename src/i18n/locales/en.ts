@@ -10,7 +10,6 @@ export default {
   },
   hero: {
     greeting: "Hi, I'm Igor Emanuel",
-    badge: 'Available for new projects',
     headlinePrefix: 'Turning complex processes into',
     headlineRotating: [
       'simple software.',
@@ -21,26 +20,24 @@ export default {
     subheadline:
       'Web systems, APIs, integrations, automations, dashboards, and SaaS built for companies that want to scale efficiently.',
     proof: [
-      '+4 years of experience',
-      'ERP, SaaS, and Corporate Systems',
-      'Laravel, Vue, Node.js, and OutSystems',
+      '3 years of experience',
+      '5+ real projects delivered',
+      'Laravel, Vue, Angular, Node',
       'Remote work across Brazil',
     ],
     cards: {
       experienceLabel: 'Experience',
-      experienceValue: '+4 years',
-      projectsLabel: 'Projects delivered',
-      projectsValue: '+{count}',
+      experienceValue: '3 years of XP',
+      projectsLabel: 'Projects',
+      projectsValue: '5+ real projects delivered',
       stackLabel: 'Main stack',
-      stackValue: 'Laravel · Vue · Node',
-      availabilityLabel: 'Availability',
-      availabilityValue: 'Open to projects',
+      stackValue: 'Laravel, Vue, Angular, Node',
     },
     description:
       'I build web systems, landing pages, and integrations that turn manual processes into automated workflows — with a focus on performance, usability, and on-time delivery.',
     ctaProjects: 'View projects',
     ctaContact: 'Get in touch',
-    ctaCv: 'Download CV',
+    ctaCv: 'View CV',
     photoAlt: 'Igor Emanuel — Full Stack Developer',
     typewriter: [
       'Full Stack Developer',
@@ -82,11 +79,12 @@ export default {
       online: 'Online',
       private: 'Private',
       'in-development': 'In Development',
-      offline: 'Archived',
+      offline: 'Offline',
     },
     productionSeal: 'In production',
     academicNote: 'Study & Learning',
     filters: {
+      clear: 'Clear filters',
       originTitle: 'Origin',
       categoryTitle: 'Category',
       statusTitle: 'Status',
@@ -118,6 +116,16 @@ export default {
     noDescription: 'Description not available.',
     items: [
       {
+        summary: 'Institutional website for an insurance consultancy with lead capture.',
+        description:
+          'I built the LC Assessoria de Seguros website with a focus on credibility and making it easy for potential clients to get in touch. The site showcases services, performance metrics, testimonials, and WhatsApp integration for immediate consultation.',
+        story: {
+          problem: 'Consultancy without a professional digital presence',
+          solution: 'Institutional site with metrics, services, and direct contact',
+          result: 'Credible online presence and client acquisition channel',
+        },
+      },
+      {
         summary: 'Digital presence for an auto shop with lead capture.',
         description:
           'I built a landing page for Valdeci Auto-Center to increase their online presence and attract more customers. The page showcases services offered, customer testimonials, and a contact form to streamline communication. The design is modern and responsive, ensuring a great experience on mobile devices.',
@@ -125,6 +133,16 @@ export default {
           problem: 'Low online visibility for the auto shop',
           solution: 'Responsive landing with services and contact',
           result: '24/7 client acquisition channel',
+        },
+      },
+      {
+        summary: 'Case study — institutional site for engineering and NR-12 compliance.',
+        description:
+          'Academic case study project: landing page for an engineering company focused on NR-12 compliance, service presentation, technical credibility, and contact channel. Built with Vue 3, TypeScript, and responsive layout.',
+        story: {
+          problem: 'Engineering company without a clear digital showcase for regulatory services',
+          solution: 'Institutional website with services, authority, and contact sections',
+          result: 'Complete case study focused on conversion and trust',
         },
       },
       {
@@ -155,16 +173,6 @@ export default {
           problem: 'Scattered, manual financial tracking',
           solution: 'Dashboard with income, expenses, and charts',
           result: 'Clear balance and category visibility',
-        },
-      },
-      {
-        summary: 'Institutional website for an insurance consultancy with lead capture.',
-        description:
-          'I built the LC Assessoria de Seguros website with a focus on credibility and making it easy for potential clients to get in touch. The site showcases services, performance metrics, testimonials, and WhatsApp integration for immediate consultation.',
-        story: {
-          problem: 'Consultancy without a professional digital presence',
-          solution: 'Institutional site with metrics, services, and direct contact',
-          result: 'Credible online presence and client acquisition channel',
         },
       },
     ],
@@ -241,7 +249,7 @@ export default {
       {
         period: 'January 2026 — Present',
         role: 'Full Stack Developer',
-        company: 'Freelancer',
+        company: 'Independent / Contractor',
         description:
           'Full software lifecycle management for clients — from negotiation to deployment.',
         impact: 'I run projects end to end — from negotiation to deployment.',
@@ -347,6 +355,158 @@ export default {
   whatsapp: {
     label: 'Chat on WhatsApp',
     message: "Hi Igor! I saw your portfolio and I'd like to chat.",
+  },
+  cv: {
+    pageLabel: 'Resume',
+    backHome: 'Back to portfolio',
+    downloadPdf: 'Download PDF',
+    pdfUrl: '/curriculo-igor-en.pdf',
+    name: 'Igor Nascimento',
+    role: 'Full Stack Developer',
+    location: 'Guarapuava, Paraná — Brazil',
+    phone: '+55 (42) 99158-3814',
+    portfolioLabel: 'Portfolio',
+    summaryTitle: 'Professional Summary',
+    summary:
+      'Full Stack Developer specialized in building corporate systems and web solutions. I integrate High-Code ecosystems (Angular, Vue, Laravel, Node, Java) and Low-Code platforms, choosing the best architectural fit for each scenario. Experienced in DevOps (Docker, CI/CD) and agile methodologies. To maximize productivity and technical quality, I use AI-assisted development workflows to optimize coding, refactoring, and continuous value delivery.',
+    skillsTitle: 'Technical Skills',
+    skillGroups: [
+      {
+        label: 'Languages',
+        items: ['PHP', 'Java', 'TypeScript', 'JavaScript (ES6+)', 'SQL'],
+      },
+      {
+        label: 'Frameworks & Platforms',
+        items: ['Laravel', 'Angular', 'Vue', 'Node', 'Spring Boot', 'React', 'React Native', 'OutSystems'],
+      },
+      {
+        label: 'Data & Backend',
+        items: ['REST APIs', 'MySQL', 'PostgreSQL', 'SQL Server'],
+      },
+      {
+        label: 'Tools, DevOps & AI',
+        items: ['Docker', 'CI/CD', 'Git', 'Figma', 'Cursor', 'Claude'],
+      },
+      {
+        label: 'Methodologies',
+        items: ['Scrum', 'Kanban'],
+      },
+    ],
+    experienceTitle: 'Professional Experience',
+    stackLabel: 'Stack',
+    experience: [
+      {
+        period: 'March 2026 — Present',
+        role: 'Full Stack Developer',
+        company: 'Insti',
+        highlights: [
+          {
+            label: 'Development & Architecture',
+            text: 'Building and evolving software with Laravel on the back-end and Angular on the front-end. Refactoring initiatives, including consolidating the user permissions system.',
+          },
+          {
+            label: 'Business Rules',
+            text: 'Implementing core platform features, such as the ticket collaborators module with advanced filtering logic based on client associations.',
+          },
+          {
+            label: 'DevOps & AI (AI-Assisted Development)',
+            text: 'Setting up Docker environments and CI/CD pipelines for continuous integration and delivery. Advanced use of AI (Cursor) and prompt engineering to accelerate microservices development and structure complex software logic.',
+          },
+        ],
+        stack: 'Laravel, Angular, SQL, Docker, CI/CD',
+      },
+      {
+        period: 'January 2026 — Present',
+        role: 'Full Stack Developer (Self-employed)',
+        company: '',
+        highlights: [
+          {
+            label: 'Architecture',
+            text: 'Strategic stack definition for each project, considering performance, cost, and solution scalability.',
+          },
+          {
+            label: 'Full Cycle (End-to-End)',
+            text: 'Full software lifecycle management, from requirements engineering and client negotiation to deployment and maintenance.',
+          },
+        ],
+        stack: 'Vue.js, TypeScript, Tailwind CSS, Node.js, Docker',
+      },
+      {
+        period: 'April 2025 — March 2026',
+        role: 'OutSystems Developer',
+        company: 'Dal Pozzo',
+        highlights: [
+          {
+            label: 'Process Automation',
+            text: 'Implemented critical ERP module features in less than a year. Automated complex flows such as Purchase Orders and Invoice Entry, eliminating manual checks and reducing team operational time.',
+          },
+          {
+            label: 'Integrations',
+            text: 'Developed REST APIs ensuring integrity and sync between third-party systems and the central ERP, including integrations with Zebra scanners and Sefaz systems.',
+          },
+          {
+            label: 'Optimization',
+            text: 'Refactored legacy flows to improve scalability and performance of the legacy system.',
+          },
+        ],
+        stack: 'OutSystems, JavaScript, SQL, REST APIs',
+      },
+      {
+        period: 'January 2024 — January 2025',
+        role: 'Data Analyst Intern',
+        company: 'Millpar',
+        highlights: [
+          {
+            label: 'Business Intelligence',
+            text: 'Created strategic Power BI dashboards to monitor KPIs (Maintenance and Finance), supporting management decision-making.',
+          },
+          {
+            label: 'Data Performance',
+            text: 'Optimized complex SQL queries, significantly reducing management report load times and improving analysis efficiency.',
+          },
+        ],
+        stack: 'SQL, Power BI, Excel',
+      },
+    ],
+    educationTitle: 'Education',
+    education: [
+      {
+        period: 'January 2022 — December 2026',
+        role: 'Internet Systems Technology',
+        company: 'UTFPR',
+        description:
+          'Focus on Software Architecture, REST APIs, and Web & Mobile Development.',
+      },
+    ],
+    certificationsTitle: 'Courses & Certifications',
+    certifications: [
+      {
+        title: 'Full Stack Program',
+        provider: 'Rocketseat',
+        period: '2025 — 2026',
+        items: [
+          'Software Engineering with PHP and Laravel: MVC architecture, secure authentication systems (encryption/hash), Middlewares, and route protection.',
+          'Modern JavaScript: Advanced DOM manipulation, Asynchrony (Promises/Async-Await), and REST API consumption.',
+        ],
+      },
+      {
+        title: 'Advanced Frontend Development (React and Vue.js)',
+        provider: 'Code Academy - 3C+',
+        period: '2025',
+        items: [],
+      },
+      {
+        title: 'Power BI for Business Intelligence and Data Modeling',
+        provider: 'Data Science Academy',
+        period: '2024',
+        items: [],
+      },
+    ],
+    languagesTitle: 'Languages',
+    languages: [
+      { name: 'Portuguese', level: 'Native' },
+      { name: 'English', level: 'Intermediate (B2)' },
+    ],
   },
   meta: {
     title: 'Igor Emanuel — Full Stack Developer',

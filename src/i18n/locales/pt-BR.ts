@@ -10,7 +10,6 @@ export default {
   },
   hero: {
     greeting: 'Olá, sou Igor Emanuel',
-    badge: 'Disponível para novos projetos',
     headlinePrefix: 'Transformando processos complexos em',
     headlineRotating: [
       'software simples.',
@@ -21,26 +20,24 @@ export default {
     subheadline:
       'Sistemas web, APIs, integrações, automações, dashboards e SaaS sob medida para empresas que querem crescer com eficiência.',
     proof: [
-      '+4 anos de experiência',
-      'ERP, SaaS e Sistemas Corporativos',
-      'Laravel, Vue, Node.js e OutSystems',
+      '3 anos de experiência',
+      '5+ projetos reais entregues',
+      'Laravel, Vue, Angular, Node',
       'Atendimento remoto para todo o Brasil',
     ],
     cards: {
       experienceLabel: 'Experiência',
-      experienceValue: '+4 anos',
-      projectsLabel: 'Projetos entregues',
-      projectsValue: '+{count}',
+      experienceValue: '3 anos de XP',
+      projectsLabel: 'Projetos',
+      projectsValue: '5+ projetos reais entregues',
       stackLabel: 'Stack principal',
-      stackValue: 'Laravel · Vue · Node',
-      availabilityLabel: 'Disponibilidade',
-      availabilityValue: 'Aberto a projetos',
+      stackValue: 'Laravel, Vue, Angular, Node',
     },
     description:
       'Desenvolvo sistemas web, landing pages e integrações que transformam processos manuais em fluxos automatizados — com foco em performance, usabilidade e entrega no prazo.',
     ctaProjects: 'Ver projetos',
     ctaContact: 'Falar comigo',
-    ctaCv: 'Baixar CV',
+    ctaCv: 'Ver CV',
     photoAlt: 'Igor Emanuel — Desenvolvedor Full Stack',
     typewriter: [
       'Desenvolvedor Full Stack',
@@ -82,11 +79,12 @@ export default {
       online: 'Online',
       private: 'Privado',
       'in-development': 'Em Desenvolvimento',
-      offline: 'Encerrado',
+      offline: 'Offline',
     },
     productionSeal: 'Em produção',
     academicNote: 'Estudo & Aprendizado',
     filters: {
+      clear: 'Limpar filtros',
       originTitle: 'Origem',
       categoryTitle: 'Categoria',
       statusTitle: 'Status',
@@ -118,6 +116,16 @@ export default {
     noDescription: 'Descrição não disponível.',
     items: [
       {
+        summary: 'Site institucional para assessoria de seguros com captação de leads.',
+        description:
+          'Desenvolvi o site da LC Assessoria de Seguros com foco em transmitir credibilidade e facilitar o contato com potenciais clientes. A página apresenta serviços, números de resultados, depoimentos e integração com WhatsApp para consultoria imediata.',
+        story: {
+          problem: 'Assessoria sem presença digital profissional',
+          solution: 'Site institucional com métricas, serviços e contato direto',
+          result: 'Presença online credível e canal de captação de clientes',
+        },
+      },
+      {
         summary: 'Presença digital para oficina automotiva com captação de clientes.',
         description:
           'Desenvolvi uma landing page para a empresa Valdeci Auto-Center com o objetivo de aumentar a presença online e atrair mais clientes. A página apresenta os serviços oferecidos, depoimentos de clientes satisfeitos e um formulário de contato para facilitar a comunicação. O design é moderno e responsivo, garantindo uma ótima experiência em dispositivos móveis.',
@@ -125,6 +133,16 @@ export default {
           problem: 'Baixa visibilidade online da oficina',
           solution: 'Landing responsiva com serviços e contato',
           result: 'Canal de captação de clientes 24/7',
+        },
+      },
+      {
+        summary: 'Estudo de caso — site institucional para engenharia e adequação NR-12.',
+        description:
+          'Projeto acadêmico de estudo de caso: landing page para uma empresa de engenharia com foco em adequação NR-12, apresentação de serviços, credibilidade técnica e canal de contato. Desenvolvido com Vue 3, TypeScript e layout responsivo.',
+        story: {
+          problem: 'Empresa de engenharia sem vitrine digital clara para serviços regulatórios',
+          solution: 'Site institucional com seções de serviços, autoridade e contato',
+          result: 'Estudo de caso completo com foco em conversão e confiança',
         },
       },
       {
@@ -155,16 +173,6 @@ export default {
           problem: 'Controle financeiro disperso e manual',
           solution: 'Dashboard com receitas, despesas e gráficos',
           result: 'Visão clara do saldo e das categorias',
-        },
-      },
-      {
-        summary: 'Site institucional para assessoria de seguros com captação de leads.',
-        description:
-          'Desenvolvi o site da LC Assessoria de Seguros com foco em transmitir credibilidade e facilitar o contato com potenciais clientes. A página apresenta serviços, números de resultados, depoimentos e integração com WhatsApp para consultoria imediata.',
-        story: {
-          problem: 'Assessoria sem presença digital profissional',
-          solution: 'Site institucional com métricas, serviços e contato direto',
-          result: 'Presença online credível e canal de captação de clientes',
         },
       },
     ],
@@ -241,7 +249,7 @@ export default {
       {
         period: 'Janeiro 2026 — Atual',
         role: 'Desenvolvedor Full Stack',
-        company: 'Freelancer',
+        company: 'Autônomo / PJ',
         description:
           'Gestão integral do ciclo de vida de software para clientes — da negociação ao deploy.',
         impact: 'Conduzo projetos ponta a ponta — da negociação ao deploy.',
@@ -347,6 +355,158 @@ export default {
   whatsapp: {
     label: 'Falar pelo WhatsApp',
     message: 'Olá Igor! Vi seu portfólio e gostaria de conversar.',
+  },
+  cv: {
+    pageLabel: 'Currículo',
+    backHome: 'Voltar ao portfólio',
+    downloadPdf: 'Baixar PDF',
+    pdfUrl: '/curriculo-igor-pt-br.pdf',
+    name: 'Igor Nascimento',
+    role: 'Desenvolvedor Full Stack',
+    location: 'Guarapuava, Paraná — Brasil',
+    phone: '+55 (42) 99158-3814',
+    portfolioLabel: 'Portfólio',
+    summaryTitle: 'Resumo Profissional',
+    summary:
+      'Desenvolvedor Full Stack especialista na construção de sistemas corporativos e soluções web. Domino a integração de ecossistemas High-Code (Angular, Vue, Laravel, Node, Java) e também plataformas Low-Code, garantindo a melhor solução arquitetural para cada cenário. Tenho vivência em DevOps (Docker, CI/CD) e metodologias ágeis. Para maximizar a produtividade e a qualidade técnica, integro fluxos de desenvolvimento assistidos por IA, otimizando a escrita de código, a refatoração e a entrega contínua de valor.',
+    skillsTitle: 'Habilidades Técnicas',
+    skillGroups: [
+      {
+        label: 'Linguagens',
+        items: ['PHP', 'Java', 'TypeScript', 'JavaScript (ES6+)', 'SQL'],
+      },
+      {
+        label: 'Frameworks & Plataformas',
+        items: ['Laravel', 'Angular', 'Vue', 'Node', 'Spring Boot', 'React', 'React Native', 'OutSystems'],
+      },
+      {
+        label: 'Dados & Backend',
+        items: ['APIs REST', 'MySQL', 'PostgreSQL', 'SQL Server'],
+      },
+      {
+        label: 'Ferramentas, DevOps & IA',
+        items: ['Docker', 'CI/CD', 'Git', 'Figma', 'Cursor', 'Claude'],
+      },
+      {
+        label: 'Metodologias',
+        items: ['Scrum', 'Kanban'],
+      },
+    ],
+    experienceTitle: 'Experiência Profissional',
+    stackLabel: 'Stack',
+    experience: [
+      {
+        period: 'Março 2026 — Atual',
+        role: 'Desenvolvedor Full Stack',
+        company: 'Insti',
+        highlights: [
+          {
+            label: 'Desenvolvimento & Arquitetura',
+            text: 'Construção e evolução do software utilizando Laravel no back-end e Angular no front-end. Refatorações, incluindo a consolidação do sistema de permissões de usuários.',
+          },
+          {
+            label: 'Regras de Negócio',
+            text: 'Implementação de funcionalidades centrais da plataforma, como o desenvolvimento do módulo de colaboradores em tickets, criando lógicas de filtragem avançadas baseadas em associações de clientes.',
+          },
+          {
+            label: 'DevOps & IA (AI-Assisted Development)',
+            text: 'Estruturação de ambientes com Docker e pipelines de CI/CD para garantir integrações e entregas contínuas. Uso avançado de IA (Cursor) na engenharia de prompts para acelerar o desenvolvimento de microsserviços e estruturar lógicas complexas de software.',
+          },
+        ],
+        stack: 'Laravel, Angular, SQL, Docker, CI/CD',
+      },
+      {
+        period: 'Janeiro 2026 — Atual',
+        role: 'Desenvolvedor Full Stack (Autônomo)',
+        company: '',
+        highlights: [
+          {
+            label: 'Arquitetura',
+            text: 'Definição estratégica da stack para cada projeto, levando em consideração performance, custo e escalabilidade da solução.',
+          },
+          {
+            label: 'Ciclo Completo (End-to-End)',
+            text: 'Gerenciamento integral do ciclo de vida do software, desde a engenharia de requisitos e negociação com clientes até o deploy e sustentação.',
+          },
+        ],
+        stack: 'Vue.js, TypeScript, Tailwind CSS, Node.js, Docker',
+      },
+      {
+        period: 'Abril 2025 — Março 2026',
+        role: 'Desenvolvedor OutSystems',
+        company: 'Dal Pozzo',
+        highlights: [
+          {
+            label: 'Automação de Processos',
+            text: 'Implementação de funcionalidades críticas nos módulos do ERP em menos de um ano. Automação de fluxos complexos, como Pedido de Compras e Entrada de Notas Fiscais, eliminando conferências manuais e reduzindo o tempo operacional das equipes.',
+          },
+          {
+            label: 'Integrações',
+            text: 'Desenvolvimento de APIs REST, garantindo a integridade e sincronia entre sistemas de terceiros e o ERP central, com destaque para a integração com coletores Zebra e sistemas da Sefaz.',
+          },
+          {
+            label: 'Otimização',
+            text: 'Refatoração de fluxos antigos para garantir a escalabilidade e a performance do sistema legado.',
+          },
+        ],
+        stack: 'OutSystems, JavaScript, SQL, APIs REST',
+      },
+      {
+        period: 'Janeiro 2024 — Janeiro 2025',
+        role: 'Estagiário de Data Analyst',
+        company: 'Millpar',
+        highlights: [
+          {
+            label: 'Inteligência de Negócios',
+            text: 'Criação de dashboards estratégicos em Power BI para monitoramento de KPIs (Manutenção e Financeiro), fundamentais para embasar a tomada de decisão dos gestores.',
+          },
+          {
+            label: 'Performance de Dados',
+            text: 'Otimização de consultas SQL complexas, reduzindo significativamente o tempo de carregamento de relatórios gerenciais e melhorando a eficiência das análises.',
+          },
+        ],
+        stack: 'SQL, Power BI, Excel',
+      },
+    ],
+    educationTitle: 'Formação Acadêmica',
+    education: [
+      {
+        period: 'Janeiro 2022 — Dezembro 2026',
+        role: 'Tecnologia em Sistemas para Internet',
+        company: 'UTFPR',
+        description:
+          'Foco em Arquitetura de Software, APIs REST e Desenvolvimento Web e Mobile.',
+      },
+    ],
+    certificationsTitle: 'Cursos e Certificações',
+    certifications: [
+      {
+        title: 'Formação Full Stack',
+        provider: 'Rocketseat',
+        period: '2025 — 2026',
+        items: [
+          'Engenharia de Software com PHP e Laravel: Implementação de Arquitetura MVC, desenvolvimento de sistemas de autenticação seguros (criptografia/hash), Middlewares e proteção de rotas.',
+          'JavaScript Moderno: Manipulação avançada de DOM, Assincronismo (Promises/Async-Await) e consumo de APIs REST.',
+        ],
+      },
+      {
+        title: 'Desenvolvimento Frontend Avançado (React e Vue.js)',
+        provider: 'Code Academy - 3C+',
+        period: '2025',
+        items: [],
+      },
+      {
+        title: 'Power BI para Business Intelligence e Modelagem de Dados',
+        provider: 'Data Science Academy',
+        period: '2024',
+        items: [],
+      },
+    ],
+    languagesTitle: 'Idiomas',
+    languages: [
+      { name: 'Português', level: 'Nativo' },
+      { name: 'Inglês', level: 'Intermediário (B2)' },
+    ],
   },
   meta: {
     title: 'Igor Emanuel — Desenvolvedor Full Stack',
