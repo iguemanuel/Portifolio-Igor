@@ -220,6 +220,8 @@ const scrollToForm = () => {
 .contact-cta {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-height: 48px;
   gap: 0.6rem;
   padding: 0.75rem 1.35rem;
   border-radius: 0.6rem;

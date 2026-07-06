@@ -93,13 +93,16 @@ const { projects } = useProjects()
   color: var(--section-accent, var(--tertiary-color));
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .projects-section {
+    height: auto;
+    overflow: visible;
     padding: 4.5rem 0 1.25rem;
     align-items: stretch;
   }
 
   .projects-section__inner {
+    height: auto;
     gap: 0.85rem;
   }
 }

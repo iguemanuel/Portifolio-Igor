@@ -37,6 +37,7 @@ import FooterComponent from '@/components/FooterComponent.vue'
 .fullpage-container {
   scroll-snap-type: y mandatory;
   overflow-y: auto;
+  overflow-x: hidden;
   height: 100vh;
 }
 
@@ -82,15 +83,6 @@ import FooterComponent from '@/components/FooterComponent.vue'
   overflow: hidden;
 }
 
-@media (max-width: 900px) {
-  .section--about-premium {
-    height: auto;
-    min-height: 100vh;
-    max-height: none;
-    overflow: visible;
-  }
-}
-
 .section--experience {
   width: 100%;
   align-items: center;
@@ -107,5 +99,17 @@ import FooterComponent from '@/components/FooterComponent.vue'
   height: 100vh;
   max-height: 100vh;
   min-height: 100vh;
+}
+
+@media (max-width: 900px) {
+  .section--home,
+  .section--projects,
+  .section--about-premium,
+  .section--contact {
+    height: auto;
+    min-height: 100vh;
+    max-height: none;
+    overflow: visible;
+  }
 }
 </style>

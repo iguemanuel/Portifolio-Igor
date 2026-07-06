@@ -281,6 +281,7 @@ const handleSubmit = async () => {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  min-height: 48px;
   margin-top: 0.5rem;
   padding: 0.9rem 1.75rem;
   font-size: 0.85rem;
@@ -332,6 +333,12 @@ const handleSubmit = async () => {
 
   .form-card__row {
     grid-template-columns: 1fr;
+  }
+
+  .form-card__field input,
+  .form-card__field select,
+  .form-card__field textarea {
+    font-size: 16px;
   }
 }
 

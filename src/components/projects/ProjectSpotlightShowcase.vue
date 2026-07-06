@@ -434,6 +434,7 @@ watch(
     padding-right: 0;
     padding-bottom: 0.15rem;
     scrollbar-width: none;
+    scroll-snap-type: x proximity;
   }
 
   .spotlight__rail::-webkit-scrollbar {
@@ -443,6 +444,7 @@ watch(
   .spotlight__rail-item {
     flex: 0 0 auto;
     min-width: 11.5rem;
+    scroll-snap-align: center;
     transform: none;
   }
 
@@ -459,8 +461,8 @@ watch(
   }
 
   .spotlight__arrow {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%;
     border: 1px solid rgba(var(--section-accent-rgb, 118, 192, 70), 0.35);
     background: rgba(var(--section-accent-rgb, 118, 192, 70), 0.08);

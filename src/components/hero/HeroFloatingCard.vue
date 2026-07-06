@@ -79,4 +79,27 @@ defineProps<{
   color: var(--text-color);
   white-space: nowrap;
 }
+
+@media (max-width: 900px) {
+  .hero-card {
+    padding: 0.55rem 0.7rem;
+    gap: 0.5rem;
+  }
+
+  .hero-card__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.8rem;
+  }
+
+  .hero-card__label {
+    font-size: 0.56rem;
+  }
+
+  .hero-card__value {
+    font-size: 0.74rem;
+    white-space: normal;
+    line-height: 1.3;
+  }
+}
 </style>
