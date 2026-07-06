@@ -237,6 +237,10 @@ onUnmounted(() => {
 
 .navbar-toggle {
   display: none;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
   background: none;
   border: none;
   color: var(--text-color);
@@ -385,7 +389,7 @@ onUnmounted(() => {
   }
 
   .navbar-toggle {
-    display: block;
+    display: flex;
   }
 }
 </style>

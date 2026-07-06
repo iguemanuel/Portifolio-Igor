@@ -214,6 +214,7 @@ watch(locale, () => initTypewriter())
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: 48px;
   padding: 0.7rem 1.35rem;
   border-radius: 0.5rem;
   font-weight: 600;
@@ -268,6 +269,11 @@ watch(locale, () => initTypewriter())
 }
 
 .hero-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
   color: rgba(237, 238, 237, 0.7);
   font-size: 1.2rem;
   transition: color 0.3s ease, transform 0.2s ease;
@@ -375,9 +381,15 @@ watch(locale, () => initTypewriter())
 }
 
 @media (max-width: 900px) {
+  .hero {
+    height: auto;
+    overflow: visible;
+  }
+
   .hero-inner {
+    height: auto;
     padding-top: 4.75rem;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .hero-content {
@@ -397,6 +409,11 @@ watch(locale, () => initTypewriter())
 
   .hero-float--stack {
     display: none;
+  }
+
+  .hero-float--exp,
+  .hero-float--projects {
+    max-width: 46%;
   }
 
   .hero-float--exp {
@@ -422,6 +439,17 @@ watch(locale, () => initTypewriter())
   .hero-ctas .btn-cta-primary,
   .hero-ctas .btn-cta-outline {
     flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-ctas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-ctas .btn-cta {
+    width: 100%;
   }
 }
 
