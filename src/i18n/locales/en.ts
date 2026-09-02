@@ -315,7 +315,7 @@ export default {
     ],
     ctaWhatsapp: 'Chat on WhatsApp',
     ctaProposal: 'Send proposal',
-    ctaBriefing: 'Fill out full briefing',
+    ctaBriefing: 'Development form',
     ctaWhatsappHint: 'Fastest channel — reply within minutes',
     emailValue: 'igor17emanuel@gmail.com',
     locationValue: 'Guarapuava, PR — Brazil',
@@ -457,7 +457,7 @@ export default {
       launch: 'Launch',
       filesLink: 'Files link',
     },
-    ctaContact: 'Fill out full briefing',
+    ctaContact: 'Development form',
   },
   cv: {
     pageTitle: 'Igor Nascimento — Resume',

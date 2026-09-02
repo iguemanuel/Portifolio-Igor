@@ -315,7 +315,7 @@ export default {
     ],
     ctaWhatsapp: 'Falar no WhatsApp',
     ctaProposal: 'Enviar proposta',
-    ctaBriefing: 'Preencher briefing completo',
+    ctaBriefing: 'Formulário de desenvolvimento',
     ctaWhatsappHint: 'Canal mais rápido — resposta em minutos',
     emailValue: 'igor17emanuel@gmail.com',
     locationValue: 'Guarapuava, PR — Brasil',
@@ -457,7 +457,7 @@ export default {
       launch: 'Lançamento',
       filesLink: 'Link de arquivos',
     },
-    ctaContact: 'Preencher briefing completo',
+    ctaContact: 'Formulário de desenvolvimento',
   },
   cv: {
     pageTitle: 'Igor Nascimento — Currículo',
