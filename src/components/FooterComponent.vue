@@ -1,14 +1,21 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useI18n } from '@/i18n'
+import { findScrollableAncestor } from '@/composables/useScrollContainer'
 
 const { t } = useI18n()
 
+const footerEl = ref<HTMLElement | null>(null)
+
 const scrollToTop = () => {
-  const home = document.getElementById('home')
-  if (home) {
-    home.scrollIntoView({ behavior: 'smooth' })
+  const container = findScrollableAncestor(footerEl.value)
+
+  if (container) {
+    container.scrollTo({ top: 0, behavior: 'smooth' })
+    return
   }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 const year = new Date().getFullYear()
@@ -16,7 +23,7 @@ const copyright = computed(() => t.value('footer.rights', { year }))
 </script>
 
 <template>
-  <footer class="site-footer">
+  <footer ref="footerEl" class="site-footer">
     <div class="site-shell d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 py-4">
       <p class="mb-0 footer-copy">{{ copyright }}</p>
 

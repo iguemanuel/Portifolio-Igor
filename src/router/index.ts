@@ -1,4 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import {
+  scrollToSectionWhenReady,
+  waitForScrollContainer,
+} from '@/composables/useScrollContainer'
 import PortfolioView from '@/views/PortfolioView.vue'
 import ProjectsPage from '@/views/ProjectsPage.vue'
 import CvPage from '@/views/CvPage.vue'
@@ -15,38 +19,18 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior(to, _from, savedPosition) {
+  async scrollBehavior(to, _from, savedPosition) {
     if (savedPosition) return savedPosition
 
     if (to.hash) {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          const el = document.getElementById(to.hash.slice(1))
-          const container = document.querySelector<HTMLElement>('.fullpage-container')
-
-          if (container && el) {
-            const top =
-              el.getBoundingClientRect().top -
-              container.getBoundingClientRect().top +
-              container.scrollTop
-            container.scrollTo({ top, behavior: 'smooth' })
-          } else if (el) {
-            el.scrollIntoView({ behavior: 'smooth' })
-          }
-
-          resolve(false)
-        }, 120)
-      })
+      await scrollToSectionWhenReady(to.hash.slice(1))
+      return false
     }
 
     if (to.path === '/') {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          const container = document.querySelector<HTMLElement>('.fullpage-container')
-          container?.scrollTo({ top: 0, behavior: 'smooth' })
-          resolve(false)
-        }, 0)
-      })
+      const container = await waitForScrollContainer()
+      if (container) container.scrollTo({ top: 0, behavior: 'smooth' })
+      return false
     }
 
     return { top: 0 }

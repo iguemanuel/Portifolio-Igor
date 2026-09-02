@@ -5,7 +5,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher.vue'
 import { useI18n } from '@/i18n'
 import {
   bindActiveSectionTracking,
-  getScrollContainer,
+  getActiveScrollContainer,
   scrollToSection,
   type LandingSectionId,
 } from '@/composables/useScrollContainer'
@@ -15,7 +15,7 @@ const route = useRoute()
 const router = useRouter()
 
 const menuOpen = ref(false)
-const activeSection = ref<LandingSectionId>('home')
+const activeSection = ref<LandingSectionId | null>('home')
 
 const sections = ['home', 'projects', 'about', 'experience', 'contact'] as const
 
@@ -96,12 +96,16 @@ const syncActiveFromRoute = () => {
     return
   }
 
-  if (route.path === '/') {
-    const hash = route.hash.replace('#', '')
-    if (hash && sections.includes(hash as (typeof sections)[number])) {
-      activeSection.value = hash as LandingSectionId
-    }
+  // Páginas standalone (/cv, /briefing) não correspondem a nenhuma seção da landing.
+  if (route.path !== '/') {
+    activeSection.value = null
+    return
   }
+
+  const hash = route.hash.replace('#', '')
+  activeSection.value = sections.includes(hash as (typeof sections)[number])
+    ? (hash as LandingSectionId)
+    : 'home'
 }
 
 watch(
@@ -127,12 +131,27 @@ watch(
   },
 )
 
-watch(menuOpen, (open) => {
-  document.body.style.overflow = open ? 'hidden' : ''
-  const container = getScrollContainer()
-  if (container) {
-    container.style.overflow = open ? 'hidden' : ''
+// Guardamos a referência: uma vez travado, o container deixa de ser detectável
+// por `getActiveScrollContainer()` (que procura por elementos roláveis).
+let lockedContainer: HTMLElement | null = null
+
+const releaseScrollLock = () => {
+  document.body.style.overflow = ''
+  if (lockedContainer) {
+    lockedContainer.style.overflow = ''
+    lockedContainer = null
   }
+}
+
+watch(menuOpen, (open) => {
+  if (!open) {
+    releaseScrollLock()
+    return
+  }
+
+  document.body.style.overflow = 'hidden'
+  lockedContainer = getActiveScrollContainer()
+  if (lockedContainer) lockedContainer.style.overflow = 'hidden'
 })
 
 onMounted(() => {
@@ -142,9 +161,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   teardownTracking()
-  document.body.style.overflow = ''
-  const container = getScrollContainer()
-  if (container) container.style.overflow = ''
+  releaseScrollLock()
 })
 </script>
 
