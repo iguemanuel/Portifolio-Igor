@@ -2,11 +2,13 @@ import { createRouter, createWebHistory } from 'vue-router'
 import PortfolioView from '@/views/PortfolioView.vue'
 import ProjectsPage from '@/views/ProjectsPage.vue'
 import CvPage from '@/views/CvPage.vue'
+import BriefingPage from '@/views/BriefingPage.vue'
 
 const routes = [
   { path: '/', name: 'home', component: PortfolioView },
   { path: '/projects', name: 'projects', component: ProjectsPage },
   { path: '/cv', name: 'cv', component: CvPage },
+  { path: '/briefing', name: 'briefing', component: BriefingPage },
   { path: '/about', redirect: '/#about' },
 ]
 
