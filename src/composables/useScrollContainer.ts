@@ -4,8 +4,46 @@ export const LANDING_SECTIONS = ['home', 'projects', 'about', 'experience', 'con
 
 export type LandingSectionId = (typeof LANDING_SECTIONS)[number]
 
+const RETRY_INTERVAL = 50
+const RETRY_LIMIT = 40
+
 export function getScrollContainer(): HTMLElement | null {
   return document.querySelector<HTMLElement>(SCROLL_CONTAINER_SELECTOR)
+}
+
+function isScrollable(el: HTMLElement): boolean {
+  const overflowY = getComputedStyle(el).overflowY
+  return (overflowY === 'auto' || overflowY === 'scroll') && el.scrollHeight > el.clientHeight
+}
+
+/** Sobe no DOM a partir de `from` até achar o elemento que realmente rola. */
+export function findScrollableAncestor(from: HTMLElement | null): HTMLElement | null {
+  let el: HTMLElement | null = from
+
+  while (el && el !== document.body) {
+    if (isScrollable(el)) return el
+    el = el.parentElement
+  }
+
+  return null
+}
+
+/**
+ * Container rolável da rota atual: o `.fullpage-container` da landing ou o wrapper
+ * das páginas standalone (`.briefing-page`, `.cv-page`, `.projects-page`).
+ */
+export function getActiveScrollContainer(): HTMLElement | null {
+  const landing = getScrollContainer()
+  if (landing) return landing
+
+  const root = document.getElementById('app')
+  if (!root) return null
+
+  for (const child of Array.from(root.children)) {
+    if (child instanceof HTMLElement && isScrollable(child)) return child
+  }
+
+  return null
 }
 
 function getSectionScrollTop(section: HTMLElement, container: HTMLElement): number {
@@ -26,6 +64,55 @@ export function scrollToSection(sectionId: string, behavior: ScrollBehavior = 's
 
   section.scrollIntoView({ behavior })
   return true
+}
+
+function retry(step: (giveUp: boolean) => boolean, tries = 0): void {
+  if (step(tries >= RETRY_LIMIT)) return
+  setTimeout(() => retry(step, tries + 1), RETRY_INTERVAL)
+}
+
+/**
+ * Espera a landing montar antes de rolar. Usado na navegação entre rotas, onde o
+ * `.fullpage-container` e as seções ainda não existem no momento do `scrollBehavior`.
+ */
+export function scrollToSectionWhenReady(
+  sectionId: string,
+  behavior: ScrollBehavior = 'smooth',
+): Promise<boolean> {
+  return new Promise((resolve) => {
+    retry((giveUp) => {
+      const section = document.getElementById(sectionId)
+      const container = getScrollContainer()
+
+      if (section && container) {
+        container.scrollTo({ top: getSectionScrollTop(section, container), behavior })
+        resolve(true)
+        return true
+      }
+
+      if (giveUp) {
+        resolve(scrollToSection(sectionId, behavior))
+        return true
+      }
+
+      return false
+    })
+  })
+}
+
+export function waitForScrollContainer(): Promise<HTMLElement | null> {
+  return new Promise((resolve) => {
+    retry((giveUp) => {
+      const container = getScrollContainer()
+
+      if (container || giveUp) {
+        resolve(container)
+        return true
+      }
+
+      return false
+    })
+  })
 }
 
 export function getActiveLandingSection(container = getScrollContainer()): LandingSectionId {

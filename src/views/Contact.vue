@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { RouterLink } from 'vue-router'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { useI18n } from '@/i18n'
 import { useReveal } from '@/composables/useReveal'
@@ -62,6 +63,11 @@ const scrollToForm = () => {
             <font-awesome-icon :icon="['fas', 'paper-plane']" aria-hidden="true" />
             <span>{{ t('contact.ctaProposal') }}</span>
           </button>
+
+          <RouterLink to="/briefing" class="contact-cta contact-cta--secondary">
+            <font-awesome-icon :icon="['fas', 'clipboard-list']" aria-hidden="true" />
+            <span>{{ t('contact.ctaBriefing') }}</span>
+          </RouterLink>
         </div>
 
         <!-- Quick links -->
